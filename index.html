@@ -15,25 +15,29 @@
     <header>
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="#">
-                        <img src="images/downhill_biker.jpg" alt="logo containg downhill biker" width="40" 
-                                height="40" class="d-inline-block align-text-top">
-                    </a>
-                    
+                <a class="navbar-brand" href="#">
+                    <img src="images/downhill_biker.jpg" alt="logo containg downhill biker" width="40" 
+                            height="40" class="d-inline-block align-text-top">
+                </a>
+
+                <form class="d-flex order-lg-2 justify-content-center" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+
+                <button class="navbar-toggler ms-2 me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="d-flex-lg order-lg-1 collapse navbar-collapse" id="collapsibleNavbar">
                     <a class="nav-link text-white fs-2" href="#">bicykle</a>
-
-
-                    <form class="d-flex ms-auto me-auto" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-
-
-                    <a class="nav-link text-white fs-3 pe-3" href="#">login</a>
+                </div>
+                
+                <div class="d-flex-lg order-3 collapse navbar-collapse" id="collapsibleNavbar">
+                    <a class="nav-link text-white fs-3 pe-3 ms-auto" href="#">login</a>
 
                     <a class="navbar-brand" href="#">
-                        <img src="images/cart.jpg" alt="logo containg downhill biker" width="40" 
+                        <img src="images/cart.jpg" alt="image of cart" width="40" 
                                 height="40" class="d-inline-block align-text-top">
                     </a>
                 </div>
@@ -48,7 +52,7 @@
                 <h2 class="display-4"><strong>Ponuka týždňa</strong></h2>
                 <p>Zaujimavé ponuky, ktoré sme si pre vás pripravili pre tento týždeň.</p>
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-3">
+                    <div class="col-9 col-lg-3 mx-3">
                         <div class="p-1">
                             <div class="card" style="width: 18rem;">
                                 <img src="images/kellys_bike.jpg" class="card-img-top" alt="Logo of kellys">
@@ -66,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-9 col-lg-3 mx-3">
                         <div class="p-1">
                             <div class="card" style="width: 18rem;">
                                 <img src="images/kellys_bike.jpg" class="card-img-top" alt="Logo of kellys">
@@ -84,7 +88,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-9 col-lg-3 mx-3">
                         <div class="p-1">
                             <div class="card" style="width: 18rem;">
                                 <img src="images/kellys_bike.jpg" class="card-img-top" alt="Logo of kellys">
@@ -111,7 +115,7 @@
                 <h2 class="display-4"><strong>Novinky týždňa</strong></h2>
                 <p>Nenechajte si újsť tieto skvelé novinky.</p>
                 <div class="row justify-content-center">
-                    <div class="col-3">
+                    <div class="col-9 col-lg-3 mx-3">
                         <div class="p-1">
                             <div class="card" style="width: 18rem;">
                                 <img src="images/kellys_bike.jpg" class="card-img-top" alt="Logo of kellys">
@@ -129,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-9 col-lg-3 mx-3">
                         <div class="p-1">
                             <div class="card" style="width: 18rem;">
                                 <img src="images/kellys_bike.jpg" class="card-img-top" alt="Logo of kellys">
@@ -147,7 +151,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-9 col-lg-3 mx-3">
                         <div class="p-1">
                             <div class="card" style="width: 18rem;">
                                 <img src="images/kellys_bike.jpg" class="card-img-top" alt="Logo of kellys">
