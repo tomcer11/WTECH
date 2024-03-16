@@ -20,18 +20,24 @@
                             height="40" class="d-inline-block align-text-top">
                 </a>
 
-                <form class="d-flex order-lg-2 justify-content-center" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-
-                <button class="navbar-toggler ms-2 me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="d-flex-lg order-lg-1 collapse navbar-collapse" id="collapsibleNavbar">
+                <div class="d-flex-lg order-lg-1 order-2 collapse navbar-collapse order-md-2" id="collapsibleNavbar">
                     <a class="nav-link text-white fs-2" href="#">bicykle</a>
                 </div>
+
+                <form class="d-flex-lg order-lg-2 order-1 justify-content-center collapse navbar-collapse" role="search" id="collapsibleNavbar">
+                    <div class="row g-0">
+                        <div class="col-6">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
                 
                 <div class="d-flex-lg order-3 collapse navbar-collapse" id="collapsibleNavbar">
                     <a class="nav-link text-white fs-3 pe-3 ms-auto" href="#">login</a>
