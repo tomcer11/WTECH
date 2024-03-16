@@ -8,22 +8,193 @@
     width: 400px;
 }
 
-.category-row{
-    padding-left: 4%;
+
+
+.prvy_v_riadku {
+    padding-left: 50px;
 }
 
-@media only screen and (max-width: 600px) {
+.druhy_v_riadku {
+    padding-left: 220px;
+}
+
+.text_D {
+    padding-left: 20px;
+    padding-top: 8px;
+    font-size: 20px;
+    color: black;
+}
+
+.text_E {
+    padding-left: 265px;
+    padding-top: 8px;
+    font-size: 20px;
+    color: black;
+}
+
+.text_T {
+    padding-left: 30px;
+    padding-top: 5px;  
+    font-size: 20px;
+    color: black;
+}
+
+.text_X {
+    padding-left: 60px;
+    padding-top: 5px;  
+    font-size: 20px;
+    color: black;
+}
+
+
+@media only screen and (max-width: 992px) {
     .card{
-        height: 115px;
+        height: 105px;
         width: 205px;
     }
 
-    .category-row{
-        padding-left: 12px;
+    .card-img{
+        height: 100px;
+        width: 200px;
+    }
+
+    .prvy_v_riadku {
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+
+    .druhy_v_riadku {
+        padding-top: 10px;
+        padding-left: 120px;
+    }
+
+    .text_D {
+        padding-left: 7px;
+        padding-top: 5px;
+        font-size: 10px;
+        color: black;
+    }
+
+    .text_E {
+        padding-left: 120px;
+        padding-top: 5px;
+        font-size: 10px;
+        color: black;
+    }
+
+    .text_T {
+        padding-left: 10px;
+        font-size: 10px;
+        padding-top: 0px;
+        color: black;
+    }
+
+    .text_X {
+        padding-left: 35px;
+        padding-top: 15px;  
+        font-size: 10px;
+        color: black;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .card{
+        height: 85px;
+        width: 155px;
+    }
+
+    .card-img{
+        height: 80px;
+        width: 150px;
+    }
+
+    .prvy_v_riadku {
+        padding-top: 10px;
+        padding-left: 10px;
+    }
+
+    .druhy_v_riadku {
+        padding-top: 10px;
+        padding-left: 90px;
+    }
+
+    .text_D {
+        padding-left: 0px;
+        padding-top: 0px;
+        font-size: 8px;
+        color: black;
+    }
+
+    .text_E {
+        padding-left: 85px;
+        padding-top: 0px;
+        font-size: 8px;
+        color: black;
+    }
+
+    .text_T {
+        padding-left: 0px;
+        font-size: 8px;
+        padding-top: 0px;
+        color: black;
+    }
+
+    .text_X {
+        padding-left: 35px;
+        padding-top: 10px;  
+        font-size: 8px;
+        color: black;
+    }
+}
+
+
+@media only screen and (max-width: 576px) {
+    .card{
+        height: 115px;
+        width: 205px;
     }
 
     .card-img{
         height: 110px;
         width: 200px;
     }
+
+    .prvy_v_riadku {
+        padding-top: 10px;
+        padding-left: 170px;
+    }
+
+    .druhy_v_riadku {
+        padding-top: 10px;
+        padding-left: 170px;
+    }
+
+    .text_D {
+        padding-left: 3px;
+        padding-top: 2px;
+        font-size: 10px;
+        color: black;
+    }
+
+    .text_E {
+        padding-left: 120px;
+        padding-top: 2px;
+        font-size: 10px;
+        color: black;
+    }
+
+    .text_T {
+        padding-left: 10px;
+        font-size: 10px;
+        padding-top: 0px;
+        color: black;
+    }
+
+    .text_X {
+        padding-left: 35px;
+        padding-top: 10px;  
+        font-size: 10px;
+        color: black;
+    }
 }
+
