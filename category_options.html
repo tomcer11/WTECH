@@ -20,18 +20,24 @@
                             height="40" class="d-inline-block align-text-top">
                 </a>
 
-                <form class="d-flex order-lg-2 justify-content-center" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-
-                <button class="navbar-toggler ms-2 me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="d-flex-lg order-lg-1 collapse navbar-collapse" id="collapsibleNavbar">
+                <div class="d-flex-lg order-lg-1 order-2 collapse navbar-collapse order-md-2" id="collapsibleNavbar">
                     <a class="nav-link text-white fs-2" href="#">bicykle</a>
                 </div>
+
+                <form class="d-flex-lg order-lg-2 order-1 justify-content-center collapse navbar-collapse" role="search" id="collapsibleNavbar">
+                    <div class="row g-0">
+                        <div class="col-9">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                        <div class="col-3">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
                 
                 <div class="d-flex-lg order-3 collapse navbar-collapse" id="collapsibleNavbar">
                     <a class="nav-link text-white fs-3 pe-3 ms-auto" href="#">login</a>
@@ -55,11 +61,11 @@
             </div>
 
             <!-- 1. riadok - DOWNHILL a ENDURO -->
-            <div class="row justify-content-between pt-3 ms-5">
+            <div class="row justify-content-between pt-3 ms-sm-5 ms-2">
                 
-                <div class="col-1"></div>
+                <div class="col-1 d-none d-sm-flex"></div>
 
-                <div class="col-3">
+                <div class="col-sm-3 col-9">
                     <div class="card text-bg-dark border border-3 border-black" style="height: 225px; width: 405px;">
                         <a href="all_products.html">
                             <img src="FIGMA/downhill category.jpg" class="card-img" alt="obrazok downhillu" style="height: 220px ;width: 400px;">
@@ -72,7 +78,7 @@
 
                 
 
-                <div class="col-3">
+                <div class="col-sm-3 col-9">
                     <div class="card text-bg-dark border border-3 border-black" style="height: 225px; width: 405px;">
                         <a href="all_products.html">
                             <img src="FIGMA/enduro_category_1.jpg" class="card-img" alt="obrazok endura" style="height: 220px; width: 400px;">
@@ -83,16 +89,16 @@
                     </div>
                 </div>
 
-                <div class="col-2"></div>
+                <div class="col-2 d-none d-sm-flex"></div>
             
             </div>
 
             <!-- 1. riadok - TRAIL a XC -->
-            <div class="row justify-content-between pt-3 ms-5">
+            <div class="row justify-content-between pt-3 ms-sm-5 ms-2">
                 
-                <div class="col-1"></div>
+                <div class="col-1 d-none d-sm-flex"></div>
 
-                <div class="col-3 ">
+                <div class="col-sm-3 col-12">
                     <div class="card text-bg-dark border border-3 border-black" style="height: 225px; width: 405px">
                         <a href="all_products.html">
                             <img src="FIGMA/trail_category.jpg" class="card-img" alt="obrazok trailu" style="height: 220px; width: 400px;">
@@ -104,7 +110,7 @@
                 </div>
 
 
-                <div class="col-3 ">
+                <div class="col-sm-3 col-12">
                     <div class="card text-bg-dark border border-3 border-black" style="height: 225px; width: 405px">
                         <a href="all_products.html">
                             <img src="FIGMA/xc_category.jpg" class="card-img" alt="obrazok downhillu" style="height: 220px; width: 405px;">
@@ -115,7 +121,7 @@
                     </div>
                 </div>
 
-                <div class="col-2"></div>
+                <div class="col-2 d-none d-sm-flex"></div>
             </div>
         </div>
 
@@ -126,7 +132,7 @@
     <br>
 
     <footer>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand navbar-dark bg-dark">
             <div class="container-fluid">
                 <ul class="navbar-nav">
                     <li class="nav-item me-2">
