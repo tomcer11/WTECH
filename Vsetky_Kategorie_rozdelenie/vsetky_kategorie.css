@@ -1,0 +1,29 @@
+
+.card{
+    height: 225px;
+    width: 405px;
+}
+.card-img{
+    height: 220px;
+    width: 400px;
+}
+
+.category-row{
+    padding-left: 4%;
+}
+
+@media only screen and (max-width: 600px) {
+    .card{
+        height: 115px;
+        width: 205px;
+    }
+
+    .category-row{
+        padding-left: 12px;
+    }
+
+    .card-img{
+        height: 110px;
+        width: 200px;
+    }
+}
