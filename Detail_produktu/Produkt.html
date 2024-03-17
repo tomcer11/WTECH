@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <title>Bike shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA Compatible" content="IE-edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="../Detail_produktu/produkt.css">
+    <link rel="stylesheet" href="../">
+    
+<body>
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="../Obrazky/downhill_biker.jpg" alt="logo containg downhill biker" width="40" 
+                            height="40" class="d-inline-block align-text-top">
+                </a>
+
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="d-flex-lg order-lg-1 order-2 collapse navbar-collapse order-md-2" id="collapsibleNavbar">
+                    <a class="nav-link text-white fs-2" href="#">bicykle</a>
+                </div>
+
+                <form class="d-flex-lg order-lg-2 order-1 justify-content-center collapse navbar-collapse" role="search" id="collapsibleNavbar">
+                    <div class="row g-0">
+                        <div class="col-9">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        </div>
+                        <div class="col-2 ms-2">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="d-flex-lg order-3 collapse navbar-collapse" id="collapsibleNavbar">
+                    <a class="nav-link text-white fs-3 pe-3 ms-auto" href="../Login_a_Registrácia/LOGIN_page.html">Prihlásiť sa</a>
+
+                    <a class="navbar-brand" href="#">
+                        <img src="../Obrazky/cart.jpg" alt="image of cart" width="40" 
+                                height="40" class="d-inline-block align-text-top">
+                    </a>
+                </div>
+              </div>
+        </nav>
+    </header>
+
+    <br>
+    <br>
+    <br>
+    <main>
+        <div class="container-fluid">
+            <div class="row riadok_1">
+                
+                <div class="col-sm-4 col-12 stlpec1">
+                    <div class="card">
+                        <img src="../Obrazky/enduro/pivot_switchblade.png" class="card-img" alt="obrazok endura" style="height: auto; width: auto;">
+                    </div>
+                    <!-- <img src="../Obrazky/enduro/pivot_switchblade.png" alt="" style="height: 200px; width: auto;"> -->
+                </div>
+
+                <div class="col-sm-8 col-12 stlpec2">
+                    <h3 class="nazov_bicykla">Pivot Switchblade | Electric Lime</h3>
+                    <p class="zvysok">2500€</p>
+                    <p class="zvysok">L</p>
+                    
+                    
+
+                    <div class="row" id="stlpec_2_riadok_2">
+                        <div class="col-6 col-sm-4" id="mnozstvo">
+
+                            <div class="input-group">
+                                <button class="btn btn-primary btn-sm" type="button">-</button>
+                                <div class="col-4 col-sm-4">
+                                    <input type="text" class="form-control text-center" placeholder="1" aria-label="Pocet" disabled>
+                                </div>
+                                <button class="btn btn-primary btn-sm" type="button">+</button>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="col-6 col-sm-4" id="pridat_do_kosika">
+                            <input class="btn btn-primary" type="submit" value="Do košíka">
+                        </div>
+                    </div>                    
+                </div>
+
+            </div>
+        </div>
+        
+        <hr>
+
+        <div class="row">
+            <div class="col-12">
+                <h6 id="popis_produktu">Popis produktu</h6>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-12 col-sm-9" id="nazvy_casti">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <th class="cast" scope="row">Výrobca</th>
+                            <td class="hodnota">PIVOT</td>
+                        </tr>
+                        <tr>
+                            <th class="cast" scope="row">Modelový rok</th>
+                            <td class="hodnota">2023</td>
+                        </tr>
+                        <tr>
+                            <th class="cast" scope="row">Rám</th>
+                            <td class="hodnota">karbón</td>
+                        </tr>
+                        <tr>
+                            <th class="cast" scope="row">Typ vidlice</th>
+                            <td class="hodnota">vzduchová</td>
+                        </tr>
+                        <tr>
+                            <th class="cast" scope="row">Predný zdvih (mm)</th>
+                            <td class="hodnota">160</td>
+                        </tr>
+                        <tr>
+                            <th class="cast" scope="row">Vidlica</th>
+                            <td class="hodnota">Fox Factory 36 29", 44mm offset, GRIP2 - 160mm</td>
+                        </tr>
+                        <tr>
+                            <th class="cast" scope="row">Tlmič</th>
+                            <td class="hodnota">Fox Factory FLOATX</td>
+                        </tr>
+                        <tr>
+                            <th class="cast" scope="row">Predný plášť</th>
+                            <td class="hodnota">Maxxis Minion DHF 29x2,5" WT, TR, 3C, EXO+, MaxxTerra</td>
+                        </tr>
+                        <tr>
+                            <th class="cast" scope="row">Zadný plášť</th>
+                            <td class="hodnota">Maxxis Minion DHRII 29x2,4" WT, TR, 3C, EXO+, MaxxTerra </td>
+                        </tr>
+                        <!-- ďalšie riadky -->
+                    </tbody>
+                </table>
+            </div>
+
+            
+        </div>
+
+    </main>
+
+    <br>
+    <div class="mb-5"></div>
+    <footer>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item me-2">
+                        <a href="#" class="nav-link text-white">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">Contact</a>
+                    </li>
+                </ul>
+
+                <p class="mt-3 text-white">©2024</p>
+            </div>
+        </nav>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+    crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>
