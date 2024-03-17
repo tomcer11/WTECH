@@ -1,3 +1,67 @@
-.nav-link:hover {
-    color: #c35410 !important;
+nav a:hover {
+    color: .221bd9 !important;
+}
+
+
+.bicykle-dropdown.dropdown-menu{
+    background-color: hsl(227, 7%, 50%);;
+    border: none;
+    border-radius: 0;
+}
+.bicykle-dropdown.dropdown-menu::-ms-expand {
+    display: none;
+}
+
+.bicykle-dropdown.dropdown-menu ul{
+    list-style: none;
+}
+
+.bicykle-dropdown.dropdown-menu ul:first-child{
+    padding-right: 1em;
+}
+
+.bicykle-dropdown.dropdown-menu li{
+    padding-right: 1em;
+    padding-bottom: 1em;
+}
+
+.bicykle-dropdown.dropdown-menu li a{
+    color: white;
+}
+
+.bicykle-dropdown.dropdown-menu li:first-child a{
+    color:black;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.bicykle-dropdown.dropdown-menu li:last-child a{
+    padding-bottom: 0;
+}
+
+@media only screen and (min-width:992px) {
+    .bicykle-dropdown.dropdown-menu{
+        left: -7vw !important;
+        right: -100vw !important;
+    }
+    .bicykle-dropdown.dropdown-menu.show{
+        display: flex;
+        margin-top: 14px; 
+    }
+
+    .bicykle-dropdown.dropdown-menu ul {
+        padding: 0 5em 0 5em ;
+    }
+
+    .bicykle-dropdown.dropdown-menu ul:not(:last-child){
+        border-right: 2px solid hsl(230, 6%, 60%);
+    }
+
+}
+
+@media only screen and (max-width:992px) {
+    .bicykle-dropdown.dropdown-menu.show{
+        max-height: 60vh;
+        overflow-y: scroll;
+
+    }
 }

@@ -14,41 +14,93 @@
     
 <body>
     <header>
-        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="../MAIN_page.html">
                     <img src="../Obrazky/downhill_biker.jpg" alt="logo containg downhill biker" width="40" 
                             height="40" class="d-inline-block align-text-top">
                 </a>
-
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bicykle
+                            </a>
+                            <div class="dropdown-menu bicykle-dropdown">
+                                <ul>
+                                    <li>
+                                        <a class="dropdown-item" href="../Vsetky_Kategorie_rozdelenie/HORSKE.html">HORSKE</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="../HORSKE/DOWNHILL_page.html">DOWNHILL</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="../HORSKE/ENDURO_page.html">ENDURO</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="../HORSKE/TRAIL_page.html">TRAIL</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="../HORSKE/XC_page.html">XC</a>
+                                    </li>
+                                </ul>
 
-                <div class="d-flex-lg order-lg-1 order-2 collapse navbar-collapse order-md-2" id="collapsibleNavbar">
-                    <a class="nav-link text-white fs-2" href="#">bicykle</a>
-                </div>
+                                <ul>
+                                    <li>
+                                        <a class="dropdown-item" href="../Vsetky_Kategorie_rozdelenie/DAMSKE.html">DAMSKE</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">URBAN</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">CROSS</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a class="dropdown-item" href="../Vsetky_Kategorie_rozdelenie/EBIKE.html">EBIKE</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">HORSKE</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">URBAN</a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a class="dropdown-item" href="../Vsetky_Kategorie_rozdelenie/CESTNE.html">CESTNE</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">RACING</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">GRAVEL</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="d-flex ms-auto me-auto" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                    <ul class="navbar-nav mb-2 p mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../Login_a_Registrácia/LOGIN_page.html">Prihlásiť sa</a>
+                        </li>
+                    </ul>
 
-                <form class="d-flex-lg order-lg-2 order-1 justify-content-center collapse navbar-collapse" role="search" id="collapsibleNavbar">
-                    <div class="row g-0">
-                        <div class="col-9">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        </div>
-                        <div class="col-2 ms-2">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </div>
-                    </div>
-                </form>
-                
-                <div class="d-flex-lg order-3 collapse navbar-collapse" id="collapsibleNavbar">
-                    <a class="nav-link text-white fs-3 pe-3 ms-auto" href="../Login_a_Registrácia/LOGIN_page.html">Prihlásiť sa</a>
-
-                    <a class="navbar-brand" href="#">
-                        <img src="../Obrazky/cart.jpg" alt="image of cart" width="40" 
+                    <a class="navbar-brand" href="../Košík_a_Platby/KOSIK.html">
+                        <img src="../Obrazky/cart.jpg" alt="logo containg downhill biker" width="40" 
                                 height="40" class="d-inline-block align-text-top">
                     </a>
+                        
                 </div>
-              </div>
+            </div>
         </nav>
     </header>
 
@@ -57,38 +109,19 @@
         <div class="container-fluid py-5 my-3">
             <div class="row justify-content-center">
                 <div class="col-8 border border-3 border-black py-4" style="height: 125px;">
-                    <h1 class="fs-1 text-center">CESTNÉ</h1>
+                    <h1 class="fs-1 text-center">CESTNE</h1>
                 </div>
             </div>
 
-
-
-            <div class="container px-4 text-center">
-                <div class="row gx-5">
-                    <div class="col">
-                        <div class="p-3">
-                            <img src="../Obrazky/cestne/racing_category1.jpg" alt="" style="height: 200px; width: 350px;">
-                        </div>
-                    </div>
-                  
-                    <div class="col">
-                        <div class="p-3">
-                            <img src="../Obrazky/cestne/gravel_category.jpg" alt="" style="height: 200px; width: 350px;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!--1. riadok - RACING a GRAVEL-->
-            <!-- <div class="row justify-content-center pt-3 ms-sm-5 ms-2">
+            <!-- 1. riadok - URBAN a CROSS -->
+            <div class="row justify-content-between pt-3 ms-sm-5 ms-2">
                 
-                <div class="col-1 d-none d-sm-flex"></div>
+                <div class="col-1 d-none d-md-flex"></div>
 
-                <div class="col-sm-3 col-9 px-0">
+                <div class="col-md-3 col-9">
                     <div class="card text-bg-dark border border-3 border-black" style="height: 225px; width: 405px;">
                         <a href="#">
-                            <img src="../Obrazky/cestne/racing_category1.jpg" class="card-img" alt="obrazok downhillu" style="height: 220px ;width: 400px;">
+                            <img src="../Obrazky/damske/category.webp" class="card-img" alt="obrazok downhillu" style="height: 220px ;width: 400px;">
                             <div class="card-img-overlay">
                                 <h5 class="card-title text-white ps-3">RACING</h5>
                             </div>
@@ -98,20 +131,20 @@
 
                 
 
-                <div class="col-sm-3 col-9">
-                    <div id="two" class="card text-bg-dark border border-3 border-black" style="height: 225px; width: 405px;">
+                <div class="col-md-3  col-9">
+                    <div class="card text-bg-dark border border-3 border-black" style="height: 225px; width: 405px;">
                         <a href="#">
-                            <img src="../Obrazky/cestne/gravel_category.jpg" class="card-img" alt="obrazok endura" style="height: 220px; width: 400px;">
+                            <img src="../Obrazky/damske/cross_category.webp" class="card-img" alt="obrazok endura" style="height: 220px; width: 400px;">
                             <div class="card-img-overlay">
-                                <h5 class="card-title text-end text-white">GRAVEL</h5>
+                                <h5 class="card-title text-start text-white">GRAVEL</h5>
                             </div>
                         </a>
                     </div>
                 </div>
 
-                <div class="col-2 d-none d-sm-flex"></div>
+                <div class="col-2 d-none d-md-flex"></div>
             
-            </div> -->
+            </div>
 
 
     </main>
