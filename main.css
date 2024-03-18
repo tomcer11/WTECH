@@ -1,5 +1,9 @@
 nav a:hover {
-    color: .221bd9 !important;
+    color: #221bd9 !important;
+}
+
+body {
+    min-height: 100vh;
 }
 
 

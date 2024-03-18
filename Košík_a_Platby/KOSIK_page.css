@@ -8,6 +8,20 @@
     border-radius: 0.7;
 }
 
+.nav-menu-payment a:hover{
+        color: #221bd9 !important;
+}
+
+.dodacie-udaje{
+    margin-right: auto;
+    margin-left: auto;
+    max-width:70vw;
+}
+
+form div{
+    padding: 5px 5px 5px 5px;
+}
+
 @media only screen and (max-width: 576px) {
     .card.cart{
         max-width: 15em;

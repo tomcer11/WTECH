@@ -106,80 +106,53 @@
 
     <br>
     <main>
-        <div class="container-fluid">
-            <div class="pt-5">
-                <h2 class="fs-2 pt-2">Nákupný košík</h2>
-                <h3 class="fs-5 pt-2 text-secondary">Produkty v košíku:</h3>
+        <div class="container text-center mt-5 py-5 bg-dark nav-menu-payment">
+            <div class="row">
+                <div class="col-4">
+                    <a class="nav-link text-primary disabled" href="#">Dodacie údaje</a>
+                </div>
+                <div class="col-4">
+                    <a class="nav-link text-secondary" href="#">Doprava a platba</a>
+                </div>
+                <div class="col-4">
+                    <a class="nav-link text-secondary" href="#">Sumarizácia</a>
+                </div>
             </div>
-            <section class="ps-5">
-                <div class="card mb-3 cart">
-                    <div class="row g-0 align-items-center">
-                      <div class="col-sm-3">
-                        <img src="../Obrazky/enduro/pivot_switchblade.png" class="img-fluid rounded-start" alt="...">
-                      </div>
-                      <div class="col-9">
-                            <div class="card-body">
-                                <div class="row align-items-center justify-content-between"> 
-                                    <div class="col-sm-3 col-9 order-sm-1 order-2 me-auto">
-                                        <h5 class="card-title">GHOST</h5>
-                                        <p class="card-text text-secondary">Riot Trail 29 bicykel, olive green/black</p>
-                                    </div>
-                                    <div class="col-sm-4 col-9 order-sm-2 order-3">
-                                        <div class="input-group">
-                                            <button class="btn btn-outline-secondary" type="button">-</button>
-                                            <div class="col-4">
-                                                <input type="text" class="form-control text-center" placeholder="11" aria-label="Pocet" disabled>
-                                            </div>
-                                            <button class="btn btn-outline-secondary" type="button">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3 col-9 order-sm-3 order-4">
-                                        <h5 class="card-title">1459€</h5>
-                                    </div> 
-                                    <div class="col-9 col-sm-1 order-sm-4 order-1">
-                                        <button type="button" class="btn-close" aria-label="Close"></button>
-                                    </div>
-                                </div>
-                            </div>
-                      </div>
-                    </div>
-                </div>
-                <div class="card mb-3 cart">
-                    <div class="row g-0 align-items-center">
-                      <div class="col-sm-3">
-                        <img src="../Obrazky/enduro/kellys_swag.jpg" class="img-fluid rounded-start" alt="...">
-                      </div>
-                      <div class="col-9">
-                            <div class="card-body">
-                                <div class="row align-items-center justify-content-between"> 
-                                    <div class="col-sm-3 col-9 order-sm-1 order-2 me-auto">
-                                        <h5 class="card-title">GHOST</h5>
-                                        <p class="card-text text-secondary">Riot Trail 29 bicykel, olive green/black</p>
-                                    </div>
-                                    <div class="col-sm-4 col-9 order-sm-2 order-3">
-                                        <div class="input-group">
-                                            <button class="btn btn-outline-secondary" type="button">-</button>
-                                            <div class="col-4">
-                                                <input type="text" class="form-control text-center" placeholder="11" aria-label="Pocet" disabled>
-                                            </div>
-                                            <button class="btn btn-outline-secondary" type="button">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3 col-9 order-sm-3 order-4">
-                                        <h5 class="card-title">1459€</h5>
-                                    </div> 
-                                    <div class="col-9 col-sm-1 order-sm-4 order-1">
-                                        <button type="button" class="btn-close" aria-label="Close"></button>
-                                    </div>
-                                </div>
-                            </div>
-                      </div>
-                    </div>
-                </div>
-            </section>
-            <h3 class="fs-3 pt-2 ms-5 text-black text-center pb-5 pt-5 border border" style="width:300px">Cena spolu: <span>1459€</span></h3>
-            <button type="button" class="btn btn-lg btn-primary ms-5 mb-5">Dokoncit objednavku</button>
         </div>
+
+        <form class="row dodacie-udaje">
+            <div class="col-6">
+                <label for="input-name" class="form-label">Meno</label>
+                <input type="text" class="form-control" id="input-name" required>
+            </div>
+            <div class="col-6">
+                <label for="input-surname" class="form-label">Priezvisko</label>
+                <input type="text" class="form-control" id="input-surname" required>
+            </div>
+            <div class="col-12">
+                <label for="input-email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="input-email" required>
+            </div>
+            <div class="col-12">
+                <label for="input-phone_number" class="form-label">Telefónne číslo</label>
+                <input type="text" class="form-control" id="input-phone_number" required>
+            </div>
+            <div class="col-12">
+                <label for="input-street" class="form-label">Ulica a popisné číslo</label>
+                <input type="text" class="form-control" id="input-street" required>
+            </div>
+            <div class="col-6">
+                <label for="input-city" class="form-label">Mesto</label>
+                <input type="text" class="form-control" id="input-city" required>
+            </div>
+            <div class="col-6">
+                <label for="input-postcode" class="form-label">PSČ</label>
+                <input type="text" class="form-control" id="input-postcode" required>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Pokračovať</button>
+              </div>
+        </form>
     </main>
 
     <br>
