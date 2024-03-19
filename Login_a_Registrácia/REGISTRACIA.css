@@ -38,7 +38,7 @@ body {
 form .txt_field {
   position: relative;
   border-bottom: 2px solid ;
-  margin: 20px 0; /* Medzera medzi všetkými riadkami */
+  margin: 20px 0;
 }
 .txt_field input {
   width: 100%;
