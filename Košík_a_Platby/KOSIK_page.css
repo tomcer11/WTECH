@@ -12,10 +12,23 @@
         color: #221bd9 !important;
 }
 
+.nav-menu-payment{
+    max-width: 90%;
+}
+
 .dodacie-udaje{
     margin-right: auto;
     margin-left: auto;
     max-width:70vw;
+}
+
+.method-class {
+    max-width: 70%;
+    background-color: #c5c5c5;
+}
+
+.submit-btn {
+    max-width: 70%
 }
 
 form div{

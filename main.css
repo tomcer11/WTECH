@@ -8,7 +8,7 @@ body {
 
 
 .bicykle-dropdown.dropdown-menu{
-    background-color: hsl(227, 7%, 50%);;
+    background-color: hsl(226, 6%, 59%);;
     border: none;
     border-radius: 0;
 }
@@ -57,7 +57,7 @@ body {
     }
 
     .bicykle-dropdown.dropdown-menu ul:not(:last-child){
-        border-right: 2px solid hsl(230, 6%, 60%);
+        border-right: 2px solid hsl(231, 5%, 52%);
     }
 
 }
