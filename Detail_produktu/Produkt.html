@@ -10,7 +10,7 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
     crossorigin="anonymous">
     <link rel="stylesheet" href="../Detail_produktu/produkt.css">
-    <link rel="stylesheet" href="../">
+    <link rel="stylesheet" href="../main.css">
     
 <body>
     <header>
@@ -59,14 +59,39 @@
         <div class="container-fluid">
             <div class="row riadok_1">
                 
-                <div class="col-sm-4 col-12 stlpec1">
-                    <div class="card">
-                        <img src="../Obrazky/enduro/pivot_switchblade.png" class="card-img" alt="obrazok endura" style="height: auto; width: auto;">
+                <div class="col-sm-5 col-12 stlpec1">
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../Obrazky/enduro/pivot/pivot_switchblade.png" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../Obrazky/enduro/pivot/22.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../Obrazky/enduro/pivot/11.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../Obrazky/enduro/pivot/33.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <!-- <img src="../Obrazky/enduro/pivot_switchblade.png" alt="" style="height: 200px; width: auto;"> -->
+
+                    <!-- <div class="card">
+                        <img src="../Obrazky/enduro/pivot_switchblade.png" class="card-img" alt="obrazok endura" style="height: auto; width: auto;">
+                    </div> -->
                 </div>
 
-                <div class="col-sm-8 col-12 stlpec2">
+                <div class="col-sm-7 col-12 stlpec2">
                     <h3 class="nazov_bicykla">Pivot Switchblade | Electric Lime</h3>
                     <p class="zvysok">2500€</p>
                     <p class="zvysok">L</p>
@@ -74,7 +99,7 @@
                     
 
                     <div class="row" id="stlpec_2_riadok_2">
-                        <div class="col-6 col-sm-4" id="mnozstvo">
+                        <!-- <div class="col-6 col-sm-4" id="mnozstvo">
 
                             <div class="input-group">
                                 <button class="btn btn-primary btn-sm" type="button">-</button>
@@ -83,75 +108,120 @@
                                 </div>
                                 <button class="btn btn-primary btn-sm" type="button">+</button>
                             </div>
-
-                            
+                        </div> -->
+                        
+                        <div id="button-cart-wrap" class="d-flex flex-wrap flex-sm-nowrap align-items-center my-2 my-sm-4">
+                            <div class="input-group no-input-arrows input-cart-amount flex-shrink-1">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary border-right-0 btn-cart-amount-minus" type="button" disabled>-</button>
+                                </div>
+                                <input class="form-control text-center font-weight-bold" required type="number" step="1" min="1" name="quantity" id="quantity" value="1" max="9999">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary border-left-0 btn-cart-amount-plus" type="button">+</button>
+                                </div>
+                            </div>
+                        
+                            <button id="button-cart" class="btn btn-primary flex-grow-1 ml-2">
+                                
+                                <span class="text-default">
+                                    Vložiť do košíka
+                                </span>
+                                
+                            </button>
                         </div>
+                        
+                    
+                        
+                       
+            
 
-                        <div class="col-6 col-sm-4" id="pridat_do_kosika">
-                            <input class="btn btn-primary" type="submit" value="Do košíka">
-                        </div>
-                    </div>                    
+                        <!-- <div class="col-6 col-sm-4" id="pridat_do_kosika">
+                            <input class="btn btn-primary flex-grow-1" type="submit" value="Do košíka">
+                        </div> -->
+
+                        
+                    </div>
+
                 </div>
 
             </div>
-        </div>
-        
-        <hr>
 
-        <div class="row">
-            <div class="col-12">
-                <h6 id="popis_produktu">Popis produktu</h6>
-            </div>
-        </div>
+            <!-- <div class="row riadok_fotiek">
+                <div class="col-1 d-flex justify-content-center">
+                    <div class="card samotne_obrazky">
+                        <img class="popup-image" src="../Obrazky/enduro/pivot/2.jpg" alt="">
+                    </div>
+                </div>
 
-        <br>
-
-        <div class="row">
-            <div class="col-12 col-sm-9" id="nazvy_casti">
-                <table class="table table-borderless">
-                    <tbody>
-                        <tr>
-                            <th class="cast" scope="row">Výrobca</th>
-                            <td class="hodnota">PIVOT</td>
-                        </tr>
-                        <tr>
-                            <th class="cast" scope="row">Modelový rok</th>
-                            <td class="hodnota">2023</td>
-                        </tr>
-                        <tr>
-                            <th class="cast" scope="row">Rám</th>
-                            <td class="hodnota">karbón</td>
-                        </tr>
-                        <tr>
-                            <th class="cast" scope="row">Typ vidlice</th>
-                            <td class="hodnota">vzduchová</td>
-                        </tr>
-                        <tr>
-                            <th class="cast" scope="row">Predný zdvih (mm)</th>
-                            <td class="hodnota">160</td>
-                        </tr>
-                        <tr>
-                            <th class="cast" scope="row">Vidlica</th>
-                            <td class="hodnota">Fox Factory 36 29", 44mm offset, GRIP2 - 160mm</td>
-                        </tr>
-                        <tr>
-                            <th class="cast" scope="row">Tlmič</th>
-                            <td class="hodnota">Fox Factory FLOATX</td>
-                        </tr>
-                        <tr>
-                            <th class="cast" scope="row">Predný plášť</th>
-                            <td class="hodnota">Maxxis Minion DHF 29x2,5" WT, TR, 3C, EXO+, MaxxTerra</td>
-                        </tr>
-                        <tr>
-                            <th class="cast" scope="row">Zadný plášť</th>
-                            <td class="hodnota">Maxxis Minion DHRII 29x2,4" WT, TR, 3C, EXO+, MaxxTerra </td>
-                        </tr>
-                        <!-- ďalšie riadky -->
-                    </tbody>
-                </table>
-            </div>
+                <div class="col-1 d-flex justify-content-center">
+                    <div class="card samotne_obrazky">
+                        <img class="popup-image" src="../Obrazky/enduro/pivot/3.jpg" alt="">
+                    </div>
+                </div>
+                
+            </div> -->
 
             
+        
+        
+            <hr>
+
+            <div class="row">
+                <div class="col-12">
+                    <h6 id="popis_produktu">Popis produktu</h6>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="col-12 col-sm-9" id="nazvy_casti">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th class="cast" scope="row">Výrobca</th>
+                                <td class="hodnota">PIVOT</td>
+                            </tr>
+                            <tr>
+                                <th class="cast" scope="row">Modelový rok</th>
+                                <td class="hodnota">2023</td>
+                            </tr>
+                            <tr>
+                                <th class="cast" scope="row">Rám</th>
+                                <td class="hodnota">karbón</td>
+                            </tr>
+                            <tr>
+                                <th class="cast" scope="row">Typ vidlice</th>
+                                <td class="hodnota">vzduchová</td>
+                            </tr>
+                            <tr>
+                                <th class="cast" scope="row">Predný zdvih (mm)</th>
+                                <td class="hodnota">160</td>
+                            </tr>
+                            <tr>
+                                <th class="cast" scope="row">Vidlica</th>
+                                <td class="hodnota">Fox Factory 36 29", 44mm offset, GRIP2 - 160mm</td>
+                            </tr>
+                            <tr>
+                                <th class="cast" scope="row">Tlmič</th>
+                                <td class="hodnota">Fox Factory FLOATX</td>
+                            </tr>
+                            <tr>
+                                <th class="cast" scope="row">Predný plášť</th>
+                                <td class="hodnota">Maxxis Minion DHF 29x2,5" WT, TR, 3C, EXO+, MaxxTerra</td>
+                            </tr>
+                            <tr>
+                                <th class="cast" scope="row">Zadný plášť</th>
+                                <td class="hodnota">Maxxis Minion DHRII 29x2,4" WT, TR, 3C, EXO+, MaxxTerra </td>
+                            </tr>
+                            <!-- ďalšie riadky -->
+                        </tbody>
+                    </table>
+                </div>
+
+            
+            </div>
+        
         </div>
 
     </main>

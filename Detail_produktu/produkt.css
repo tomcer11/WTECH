@@ -43,7 +43,9 @@ padding-left: 7%;
         border-width: 1px;
         color: white;
         font-weight: bold;
-        border-color: black
+        border-color: black;
+        height: 50px;
+        width: 200px;
     }
 }
 
@@ -68,6 +70,27 @@ padding-left: 7%;
 .hodnota {
     text-align: left;
     font-size: 17px;
+}
+
+
+#button-cart-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; /* Zmena zarovnania výšky prvkov */
+}
+
+.input-group, #button-cart {
+    flex: 1;
+    margin-right: 10px;
+    margin-bottom: 10px; /* Pridanie medzery medzi prvkami */
+}
+
+/* Media query pre prispôsobenie rozloženia pre menšie zariadenia */
+@media (max-width: 576px) {
+    .input-group, #button-cart {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
 }
 
 
