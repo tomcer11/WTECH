@@ -12,6 +12,10 @@ footer {
     margin-top: auto;
 }
 
+.card .btn {
+    width: 70%;
+}
+
 .bicykle-dropdown.dropdown-menu{
     background-color: hsl(226, 6%, 59%);;
     border: none;
