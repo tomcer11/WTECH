@@ -12,7 +12,7 @@ footer {
     margin-top: auto;
 }
 
-.card .btn {
+.card .btn.btn-danger {
     width: 70%;
 }
 
