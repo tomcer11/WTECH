@@ -1,0 +1,50 @@
+.card.cart{
+    max-width: 60em;
+}
+.card.cart img {
+    max-width: 50%;
+    margin:auto;
+    padding:0.5em;
+    border-radius: 0.7;
+}
+
+.nav-menu-payment a:hover{
+    color: #221bd9 !important;
+}
+
+.nav-menu-payment{
+    max-width: 90%;
+}
+
+.dodacie-udaje{
+    margin-right: auto;
+    margin-left: auto;
+    max-width:70vw;
+}
+
+.method-class {
+    max-width: 70%;
+    background-color: #c5c5c5;
+}
+
+.submit-btn {
+    max-width: 70%
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 576px) {
+    .card.cart{
+        max-width: 15em;
+    }
+    .card.cart img {
+        max-width: 75%;
+        margin:auto;
+        padding:0.5em;
+        border-radius: 0.7;
+    }
+}
