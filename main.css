@@ -54,7 +54,7 @@ footer {
 
 
 
-.carousel-item {
+.carousel-item.banner {
     height: 600px;
 }
 
@@ -116,7 +116,7 @@ footer {
     }
 
 
-    .carousel-item {
+    .carousel-item.banner {
         height: 300px;
     }
     
