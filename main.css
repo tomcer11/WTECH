@@ -4,8 +4,13 @@ nav a:hover {
 
 body {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+footer {
+    margin-top: auto;
 }
-
 
 .bicykle-dropdown.dropdown-menu{
     background-color: hsl(226, 6%, 59%);;
