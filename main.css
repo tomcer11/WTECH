@@ -51,6 +51,40 @@ footer {
     padding-bottom: 0;
 }
 
+
+
+
+.carousel-item {
+    height: 600px;
+}
+
+.X {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+    opacity: 90%;
+}
+
+.banner_popis {
+    color: white;
+    font-weight: bolder;
+    font-size: 4vw;
+}
+
+.banner-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+
+
+
+
+
+
 @media only screen and (min-width:992px) {
     .bicykle-dropdown.dropdown-menu{
         left: -7vw !important;
@@ -69,6 +103,9 @@ footer {
         border-right: 2px solid hsl(231, 5%, 52%);
     }
 
+
+    
+
 }
 
 @media only screen and (max-width:992px) {
@@ -76,5 +113,29 @@ footer {
         max-height: 60vh;
         overflow-y: scroll;
 
+    }
+
+
+    .carousel-item {
+        height: 300px;
+    }
+    
+    .X {
+        width: 100%;
+        height: 100% !important;
+        object-fit: cover;
+        opacity: 90%;
+    }
+    
+    .banner_popis {
+        color: white;
+        font-weight: bolder;
+        font-size: 4vw;
+    }
+    
+    .banner-caption {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
