@@ -56,6 +56,8 @@ return new class extends Migration
             $table->string('grip', length: 100);
             $table->string('seat_post', length: 100);
             $table->string('seat', length: 100);
+            $table->boolean('is_new');
+            $table->boolean('is_offer_of_the_week');
             $table->timestampsTz();
         });
 
@@ -72,6 +74,7 @@ return new class extends Migration
             $table->foreignId('products')->constrained();
             $table->string('name', length: 20);
             $table->string('path', length: 50);
+            $table->string('alt_text', length: 20);
             $table->timestampsTz();
         });
     }

@@ -1,0 +1,141 @@
+nav a:hover {
+    color: #221bd9 !important;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+footer {
+    margin-top: auto;
+}
+
+.card .btn.btn-danger {
+    width: 70%;
+}
+
+.bicykle-dropdown.dropdown-menu{
+    background-color: hsl(226, 6%, 59%);;
+    border: none;
+    border-radius: 0;
+}
+.bicykle-dropdown.dropdown-menu::-ms-expand {
+    display: none;
+}
+
+.bicykle-dropdown.dropdown-menu ul{
+    list-style: none;
+}
+
+.bicykle-dropdown.dropdown-menu ul:first-child{
+    padding-right: 1em;
+}
+
+.bicykle-dropdown.dropdown-menu li{
+    padding-right: 1em;
+    padding-bottom: 1em;
+}
+
+.bicykle-dropdown.dropdown-menu li a{
+    color: white;
+}
+
+.bicykle-dropdown.dropdown-menu li:first-child a{
+    color:black;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.bicykle-dropdown.dropdown-menu li:last-child a{
+    padding-bottom: 0;
+}
+
+
+
+
+.carousel-item.banner {
+    height: 600px;
+}
+
+.X {
+    width: 100%;
+    height: 100% !important;
+    object-fit: cover;
+    opacity: 90%;
+}
+
+.banner_popis {
+    color: white;
+    font-weight: bolder;
+    font-size: 4vw;
+}
+
+.banner-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width:992px) {
+    .bicykle-dropdown.dropdown-menu{
+        left: -7vw !important;
+        right: -100vw !important;
+    }
+    .bicykle-dropdown.dropdown-menu.show{
+        display: flex;
+        margin-top: 14px; 
+    }
+
+    .bicykle-dropdown.dropdown-menu ul {
+        padding: 0 5em 0 5em ;
+    }
+
+    .bicykle-dropdown.dropdown-menu ul:not(:last-child){
+        border-right: 2px solid hsl(231, 5%, 52%);
+    }
+
+
+    
+
+}
+
+@media only screen and (max-width:992px) {
+    .bicykle-dropdown.dropdown-menu.show{
+        max-height: 60vh;
+        overflow-y: scroll;
+
+    }
+
+
+    .carousel-item.banner {
+        height: 300px;
+    }
+    
+    .X {
+        width: 100%;
+        height: 100% !important;
+        object-fit: cover;
+        opacity: 90%;
+    }
+    
+    .banner_popis {
+        color: white;
+        font-weight: bolder;
+        font-size: 4vw;
+    }
+    
+    .banner-caption {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
