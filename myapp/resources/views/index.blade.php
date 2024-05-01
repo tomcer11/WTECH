@@ -50,22 +50,16 @@
                 </div>
             </div>
         </section>
-        
-        
-
-
-
-
 
         <section id="Sales">
             <div class = "container my-5 text-center pt-5">
                 <h2 class="display-4"><strong>Ponuka týždňa</strong></h2>
                 <p>Zaujimavé ponuky, ktoré sme si pre vás pripravili pre tento týždeň.</p>
                 <div class="row justify-content-center align-items-center">
-                    @for ($i = 0; $i < 3; $i++)
-                        <x-product-card name="Produkt" price="1500" 
+                    @foreach ($new_products as $offer_product)
+                        <x-product-card name="{{ $offer_product->producer }}" price="{{ $offer_product->price }}" 
                         photoPath="{{asset('storage/Obrazky/downhill_biker')}}" altText="Biker"/>
-                    @endfor  
+                    @endforeach  
                 </div>
             </div>
         </section>
@@ -75,41 +69,21 @@
                 <h2 class="display-4"><strong>Novinky týždňa</strong></h2>
                 <p>Nenechajte si újsť tieto skvelé novinky.</p>
                 <div class="row justify-content-center">
-                    @for ($i = 0; $i < 3; $i++)
-                        <x-product-card name="Produkt" price="1500" 
+                    @foreach ($new_products as $new_product)
+                        <x-product-card name="{{ $new_product->producer }}" price="{{ $new_product->price }}" 
                         photoPath="{{asset('storage/Obrazky/downhill_biker')}}" altText="Biker" />
-                    @endfor 
+                    @endforeach 
                 </div>   
             </div>
         
-        </section>
-
-        
-
-        
-        
-        
+        </section>     
 
     </main>
 
     <br>
 
-    <footer>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <ul class="navbar-nav">
-                    <li class="nav-item me-2">
-                        <a href="#" class="nav-link text-white">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link text-white">Contact</a>
-                    </li>
-                </ul>
-
-                <p class="mt-3 text-white">©2024</p>
-            </div>
-        </nav>
-    </footer>
+    <x-footer />
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
     crossorigin="anonymous"></script>

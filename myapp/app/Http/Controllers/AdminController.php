@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
 
-class IndexController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       $new_products = Product::where('is_new', true)->take(3)->get();
-       $offer_products = Product::where([['is_offer_of_the_week', true], ['is_new', false]])->take(3)->get(); 
-       return view('index', ['new_products' => $new_products, 'offer_products' => $offer_products]); 
+       return view('admin'); 
     }
 
     /**
