@@ -33,7 +33,7 @@ return new class extends Migration
             $table->integer('model_year');
             $table->string('frame', length: 20);
             $table->string('fork_type', length: 20);
-            $table->string('frame_size', length: 2);
+            $table->enum('frame_size', ['S', 'M', 'L', 'XL']);
             $table->integer('front_lift');
             $table->string('fork', length: 100);
             $table->string('rear_shock', length: 100);
@@ -47,7 +47,6 @@ return new class extends Migration
             $table->string('cranks', length: 100);
             $table->string('cassette', length: 100);
             $table->string('derailleur', length: 100);
-            $table->string('breaks', length: 100);
             $table->string('brakes', length: 100);
             $table->string('front_rotor', length: 100);
             $table->string('rear_rotor', length: 100);

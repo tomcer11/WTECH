@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Product extends Model
 {
+
+    protected $guarded = ['id'];
     use HasFactory;
 
     public function order(): BelongsToMany
