@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\SubCategory;
 use App\Models\MainCategory;
+use Brick\Math\BigInteger;
 
 class ProductController extends Controller
 {
@@ -59,9 +60,7 @@ class ProductController extends Controller
             'handbar' => 'required|max:100',
             'grip' => 'required|max:100',
             'seat_post' => 'required|max:100',
-            'seat' => 'required|max:100',
-            'is_new' => 'required',
-            'is_offer_of_the_week' => 'required', 
+            'seat' => 'required|max:100', 
         ]);
 
         $product = Product::create([
@@ -130,7 +129,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'price' => 'required',
@@ -155,45 +154,49 @@ class ProductController extends Controller
             'derailleur' => 'required|max:100',
             'brakes' => 'required|max:100',
             'front_rotor' => 'required|max:100',
+            'rear_rotor' => 'required|max:100',
             'stem' => 'required|max:100',
             'handbar' => 'required|max:100',
             'grip' => 'required|max:100',
             'seat_post' => 'required|max:100',
             'seat' => 'required|max:100',
-            'is_new' => 'required',
-            'is_offer_of_the_week' => 'required', 
         ]);
 
-        $product->price = $request->price;
-        $product->producer = $request->producer;
-        $product->model = $request->model;
-        $product->model_year = $request->model_year;
-        $product->frame = $request->frame;
-        $product->fork_type = $request->fork_type;
-        $product->frame_size = $request->frame_size;
-        $product->front_lift = $request->front_lift;
-        $product->fork = $request->fork;
-        $product->rear_shock = $request->rear_shock;
-        $product->front_tire = $request->front_tire;
-        $product->rim = $request->rim;
-        $product->cassette_count = $request->cassette_count;
-        $product->front_cassette_count = $request->front_cassette_count;
-        $product->chain = $request->chain;
-        $product->drive_train = $request->drive_train;
-        $product->cranks = $request->cranks;
-        $product->cassette = $request->cassette;
-        $product->derailleur = $request->derailleur;
-        $product->brakes = $request->brakes;
-        $product->front_rotor = $request->front_rotor;
-        $product->stem = $request->stem;
-        $product->handbar = $request->handbar;
-        $product->grip = $request->grip;
-        $product->seat_post = $request->seat_post;
-        $product->seat = $request->seat;
-        $product->is_new = $request->is_new;
-        $product->is_offer_of_the_week = $request->is_offer_of_the_week;
+        Product::find($id)->update([
+            'price' => $request->price,
+                'producer' => $request->producer,
+                'model' => $request->model,
+                'model_year' => $request->model_year,
+                'frame' => $request->frame,
+                'fork_type' => $request->fork_type,
+                'frame_size' => $request->frame_size,
+                'front_lift' => $request->front_lift,
+                'fork' => $request->fork,
+                'rear_shock' => $request->rear_shock,
+                'front_tire' => $request->front_tire,
+                'rear_tire' => $request->rear_tire,
+                'rim' => $request->rim,
+                'cassette_count' => $request->cassette_count,
+                'front_cassette_count' => $request->front_cassette_count,
+                'chain' => $request->chain,
+                'drive_train' => $request->drive_train,
+                'cranks' => $request->cranks,
+                'cassette' => $request->cassette,
+                'derailleur' => $request->derailleur,
+                'brakes' => $request->brakes,
+                'front_rotor' => $request->front_rotor,
+                'rear_rotor' => $request->rear_rotor,
+                'stem' => $request->stem,
+                'handbar' => $request->handbar,
+                'grip' => $request->grip,
+                'seat_post' => $request->seat_post,
+                'seat' => $request->seat,
+                'is_new' => $request->boolean('is_new'),
+                'is_offer_of_the_week' => $request->boolean('is_offer_of_the_week'),
+                'sub_categories' => $request->sub_category,
+                'main_categories' => $request->main_category
+        ]);
 
-        $product->save();
 
         return redirect('admin');
 
@@ -202,9 +205,9 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Product $product)
+    public function destroy($product)
     {
-        $product->delete();
+        Product::destroy($product);
 
         return redirect('admin');
     } 

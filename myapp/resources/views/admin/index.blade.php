@@ -160,7 +160,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('admin', [$product->id])}}" method="POST" id="add_product">
+                                    <form action="{{url('admin', [$product->id])}}" method="POST" id="edit_product">
                                         @csrf
                                         @method('PUT')
                                         <div class="mb-3">
@@ -283,7 +283,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="is_new" class="form-check-label">Je novy?</label>
-                                            <input value="{{ $product->is_new }}" name="is_new" type="checkbox" class="form-check-input" id="is_new" required>
+                                            <input value="{{ $product->is_new }}" name="is_new" type="checkbox" class="form-check-input" id="is_new">
                                         </div>
                                         <div class="mb-3">
                                             <label for="is_offer_of_the_week" class="form-check-label">Je to specialna ponuka?</label>
@@ -324,7 +324,7 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                <button form="edit_product" type="button submit" class="btn btn-dark">Upraviť produkt</button>
+                                <button form="edit_product" type="submit" class="btn btn-dark">Upraviť produkt</button>
                                 </div>
                                 </div>
                             </div>
