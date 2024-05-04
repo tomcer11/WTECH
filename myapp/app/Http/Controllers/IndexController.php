@@ -12,8 +12,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-       $new_products = Product::where('is_new', true)->take(3)->get();
-       $offer_products = Product::where([['is_offer_of_the_week', true], ['is_new', false]])->take(3)->get(); 
+       $new_products = Product::where('is_new', true)->take(3);
+       $offer_products = Product::where([['is_offer_of_the_week', true], ['is_new', false]])->take(3); 
        return view('layout/index', ['new_products' => $new_products, 'offer_products' => $offer_products]); 
     }
 

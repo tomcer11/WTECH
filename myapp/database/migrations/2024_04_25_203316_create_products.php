@@ -25,8 +25,8 @@ return new class extends Migration
 
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('main_categories')->constrained();
-            $table->foreignId('sub_categories')->constrained();
+            $table->unsignedBigInteger('main_category_id');
+            $table->unsignedBigInteger('sub_category_id');
             $table->integer('price');
             $table->string('producer', length: 20);
             $table->string('model', length: 100);
@@ -62,17 +62,17 @@ return new class extends Migration
 
         Schema::create('item_order', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('products')->constrained();
-            $table->foreignId('orders')->constrained();
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('order_id');
             $table->integer('quantity');
             $table->decimal('price', total: 8, places: 2);
         });
 
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('products')->constrained();
-            $table->string('name', length: 20);
-            $table->string('path', length: 50);
+            $table->unsignedBigInteger('product_id');
+            $table->string('name', length: 44);
+            $table->string('path', length: 200);
             $table->string('alt_text', length: 20);
             $table->timestampsTz();
         });

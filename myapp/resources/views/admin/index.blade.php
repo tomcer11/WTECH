@@ -5,13 +5,10 @@
 @foreach ($products as $product)
 <div class="card mb-3 cart">
     <div class="row g-0 align-items-center">
-        <div class="col-1">
-        <img src="../Obrazky/enduro/pivot/1.jpg" class="img-fluid pb" alt="...">
-        <img src="../Obrazky/enduro/pivot/2.jpg" class="img-fluid" alt="...">
-        </div>
-        <div class="col-1">
-        <img src="../Obrazky/enduro/pivot/3.jpg" class="img-fluid" alt="...">
-        <img src="../Obrazky/enduro/pivot/11.jpg" class="img-fluid" alt="...">
+        <div class="col-2">
+            @foreach ( $product->images as $image)
+                <img src="{{asset('storage/'.$image->name)}}" class="img-fluid pb" alt="{{$image->alt_text}}">
+            @endforeach 
         </div>
         <div class="col-10">
             <div class="card-body">

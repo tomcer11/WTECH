@@ -21,7 +21,7 @@
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form action="/admin" method="POST" id="add_product">
+                            <form action="/admin" method="POST" id="add_product" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
                                   <label for="producer" class="col-form-label">Výrobca:</label>
@@ -152,17 +152,33 @@
                                     <label class="input-group" for="image-1">Obrázok 1:</label>
                                     <input name="image_1" type="file" class="form-control" id="image-1" required>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="alt-text-1" class="col-form-label">Alt text pre obrazok 1:</label>
+                                    <input name="alt_text_1" class="form-control" id="alt-text-1" required>
+                                </div>
                                 <div class="input-group mb-3">
                                     <label class="input-group" for="image-2">Obrázok 2:</label>
                                     <input name="image_2" type="file" class="form-control" id="image-2" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="alt-text-2" class="col-form-label">Alt text pre obrazok 2:</label>
+                                    <input name="alt_text_2" class="form-control" id="alt-text-2" required>
                                 </div>
                                 <div class="input-group mb-3">
                                     <label class="input-group" for="image-3">Obrázok 3:</label>
                                     <input name="image_3" type="file" class="form-control" id="image-3" required>
                                 </div>
+                                <div class="mb-3">
+                                    <label for="alt-text-3" class="col-form-label">Alt text pre obrazok 3:</label>
+                                    <input name="alt_text_3" class="form-control" id="alt-text-3" required>
+                                </div>
                                 <div class="input-group mb-3">
                                     <label class="input-group" for="image-4">Obrázok 4:</label>
                                     <input name="image_4" type="file" class="form-control" id="image-4" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="alt-text-4" class="col-form-label">Alt text pre obrazok 4:</label>
+                                    <input name="alt_text_4" class="form-control" id="alt-text-4" required>
                                 </div>
                                 <div class="mb-3">
                                 <label for="main-category" class="col-form-label">Hlavna kategoria:</label>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\SubCategory;
 use App\Models\MainCategory;
-use Brick\Math\BigInteger;
+use App\Models\Image;
 
 class ProductController extends Controller
 {
@@ -60,7 +60,11 @@ class ProductController extends Controller
             'handbar' => 'required|max:100',
             'grip' => 'required|max:100',
             'seat_post' => 'required|max:100',
-            'seat' => 'required|max:100', 
+            'seat' => 'required|max:100',
+            'alt_text_1'=> 'required|max:20',
+            'alt_text_2'=> 'required|max:20',
+            'alt_text_3'=> 'required|max:20',
+            'alt_text_4'=> 'required|max:20',
         ]);
 
         $product = Product::create([
@@ -94,18 +98,23 @@ class ProductController extends Controller
                 'seat' => $request->seat,
                 'is_new' => $request->boolean('is_new'),
                 'is_offer_of_the_week' => $request->boolean('is_offer_of_the_week'),
-                'sub_categories' => $request->sub_category,
-                'main_categories' => $request->main_category
+                'sub_category_id' => $request->sub_category,
+                'main_category_id' => $request->main_category
             ]
         );
 
-        $image_1 = request()->get('image_1', '');
-        $image_2 = request()->get('image_2', '');
-        $image_3 = request()->get('image_3', '');
-        $image_4 = request()->get('image_4', '');
 
-        
+        for($i = 1; $i <= 4; $i++){
+            $image = $request->file('image_'.$i);
+            $image->store(options: 'public');
 
+            Image::create([
+                'product_id' => $product->id,
+                'name' => $image->hashName(),
+                'path' => storage_path(),
+                'alt_text' => $request->{'alt_text_'.$i}
+            ]);
+        }
 
         return redirect()->route('admin.index');
     }
@@ -193,8 +202,8 @@ class ProductController extends Controller
                 'seat' => $request->seat,
                 'is_new' => $request->boolean('is_new'),
                 'is_offer_of_the_week' => $request->boolean('is_offer_of_the_week'),
-                'sub_categories' => $request->sub_category,
-                'main_categories' => $request->main_category
+                'sub_category_id' => $request->sub_category,
+                'main_category_id' => $request->main_category
         ]);
 
 
