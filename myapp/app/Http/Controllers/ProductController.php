@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\SubCategory;
 use App\Models\MainCategory;
 use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -206,7 +207,6 @@ class ProductController extends Controller
                 'main_category_id' => $request->main_category
         ]);
 
-
         return redirect('admin');
 
     }
@@ -214,10 +214,18 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($product)
-    {
-        Product::destroy($product);
+    public function destroy($id)
+    { 
+        $product = Product::find($id);
+        $images = $product->images;
+        foreach($images as $image) {
+            Storage::disk('public')->delete($image->name);
+            $image->delete();
+        }
 
+        $product->delete();
+
+        
         return redirect('admin');
     } 
 }

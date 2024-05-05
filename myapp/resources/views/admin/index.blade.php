@@ -280,11 +280,13 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="is_new" class="form-check-label">Je novy?</label>
-                                            <input value="{{ $product->is_new }}" name="is_new" type="checkbox" class="form-check-input" id="is_new">
+                                            <input value="{{ $product->is_new }}" name="is_new" type="checkbox" class="form-check-input" id="is_new"
+                                            {{$product->is_new === true ? 'checked':''}}>
                                         </div>
                                         <div class="mb-3">
                                             <label for="is_offer_of_the_week" class="form-check-label">Je to specialna ponuka?</label>
-                                            <input value="{{ $product->is_offer_of_the_week }}" name="is_offer_of_the_week" type="checkbox" class="form-check-input" id="is_offer_of_the_week">
+                                            <input value="{{ $product->is_offer_of_the_week }}" name="is_offer_of_the_week" type="checkbox" class="form-check-input" 
+                                            id="is_offer_of_the_week" {{$product->is_offer_of_the_week === true ? 'checked':''}}>
                                         </div>
                                         <div class="input-group mb-3">
                                             <label class="input-group" for="image-1">Obrázok 1:</label>
@@ -302,6 +304,12 @@
                                             <label class="input-group" for="image-4">Obrázok 4:</label>
                                             <input name="image_4" type="file" class="form-control" id="image-4">
                                         </div>
+                                        @foreach ($product->images as $image)
+                                            <div class="mb-3">
+                                                <label for="'alt-text-'.{{ $loop->iteration }}" class="col-form-label">Alt text pre obrazok {{ $loop->iteration }}:</label>
+                                                <input value="{{ $image->alt_text }}" name="'alt_text_'. {{ $loop->iteration }}" class="form-control" id="'alt-text-'.{{ $loop->iteration }}" required>
+                                            </div>
+                                        @endforeach
                                         <div class="mb-3">
                                         <label for="main-category" class="col-form-label">Hlavna kategoria:</label>
                                         <select name="main_category" class="form-select" id="main-category">
