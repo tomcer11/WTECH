@@ -12,6 +12,8 @@ Route::get('/', function () {
 Route::resource('admin', ProductController::class);
 Route::resource('/', IndexController::class);
 
+//Route::get('admin', [ProductController::class, 'index'])->middleware('auth');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

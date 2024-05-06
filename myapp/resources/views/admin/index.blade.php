@@ -157,7 +157,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{url('admin', [$product->id])}}" method="POST" id="edit_product">
+                                    <form action="{{url('admin', [$product->id])}}" method="POST" id="edit_product" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="mb-3">
@@ -306,8 +306,8 @@
                                         </div>
                                         @foreach ($product->images as $image)
                                             <div class="mb-3">
-                                                <label for="'alt-text-'.{{ $loop->iteration }}" class="col-form-label">Alt text pre obrazok {{ $loop->iteration }}:</label>
-                                                <input value="{{ $image->alt_text }}" name="'alt_text_'. {{ $loop->iteration }}" class="form-control" id="'alt-text-'.{{ $loop->iteration }}" required>
+                                                <label for="{{'alt-text-'.$loop->iteration }}" class="col-form-label">Alt text pre obrazok {{ $loop->iteration }}:</label>
+                                                <input value="{{ $image->alt_text }}" name="{{'alt_text_'.$loop->iteration }}" class="form-control" id="{{'alt-text-'.$loop->iteration }}" required>
                                             </div>
                                         @endforeach
                                         <div class="mb-3">

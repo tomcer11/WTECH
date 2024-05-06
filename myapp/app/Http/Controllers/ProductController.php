@@ -66,6 +66,10 @@ class ProductController extends Controller
             'alt_text_2'=> 'required|max:20',
             'alt_text_3'=> 'required|max:20',
             'alt_text_4'=> 'required|max:20',
+            'image_1 => required|mimes:png,jpg',
+            'image_2 => required|mimes:png,jpg',
+            'image_3 => required|mimes:png,jpg',
+            'image_4 => required|mimes:png,jpg',
         ]);
 
         $product = Product::create([
@@ -123,7 +127,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         //
     }
@@ -170,9 +174,14 @@ class ProductController extends Controller
             'grip' => 'required|max:100',
             'seat_post' => 'required|max:100',
             'seat' => 'required|max:100',
+            'image_1 => mimes:png,jpg',
+            'image_2 => mimes:png,jpg',
+            'image_3 => mimes:png,jpg',
+            'image_4 => mimes:png,jpg',
         ]);
 
-        Product::find($id)->update([
+        $product = Product::find($id);
+        $product->update([
             'price' => $request->price,
                 'producer' => $request->producer,
                 'model' => $request->model,
@@ -206,6 +215,22 @@ class ProductController extends Controller
                 'sub_category_id' => $request->sub_category,
                 'main_category_id' => $request->main_category
         ]);
+
+        $images = $product->images;
+        
+        for($i = 1; $i <= 4; $i++){
+            if($request->file('image_'.$i) != null) {
+                $image = $request->file('image_'.$i);
+                $image->store(options: 'public');
+
+                Storage::disk('public')->delete($images[$i - 1]->name);
+
+                $images[$i - 1]->name = $image->hashName();
+                $images[$i - 1]->path = storage_path();
+                $images[$i - 1]->alt_text = $request->{'alt_text_'.$i};
+                $images[$i - 1]->save();
+            }
+        }
 
         return redirect('admin');
 
