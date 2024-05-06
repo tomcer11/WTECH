@@ -8,7 +8,7 @@
 
 
     <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/produkt.css' }}" rel="stylesheet">
+    <link href="{{ asset('/css/produkt.css') }}" rel="stylesheet">
     
 <body>
     <header>
@@ -26,15 +26,14 @@
                     <div id="carouselExample" class="carousel slide">
                         
                     <div class="carousel-inner">
-                        <?php
-                        // Predpokladajme, že $images obsahuje cesty k obrázkom z databázy
-                        foreach ($images as $index => $image) {
-                            $activeClass = $index === 0 ? 'active' : ''; // Prvý obrázok bude aktívny
-                            ?>
-                            <div class="carousel-item <?php echo $activeClass; ?>">
-                                <img src="<?php echo $image['path']; ?>" class="d-block w-100" alt="...">
+
+                        @foreach ($product->images as $image) 
+                            <div class="carousel-item {{ $loop->first ? 'active' : '' }} ">
+                                <img src="{{ asset('storage/'.$image->name) }}" class="d-block w-100" alt="{{ $image->altText }}">
                             </div>
-                        <?php } ?>
+                        
+                        @endforeach
+
                     </div>
                     
                         <!-- <div class="carousel-inner">
@@ -78,7 +77,7 @@
                         <div id="button-cart-wrap" class="d-flex flex-wrap flex-sm-nowrap align-items-center my-2 my-sm-4">
                             <div class="input-group no-input-arrows input-cart-amount flex-shrink-1">
                                 <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary border-right-0 btn-cart-amount-minus" type="button" disabled>-</button>
+                                    <button class="btn btn-outline-secondary border-right-0 btn-cart-amount-minus" type="button">-</button>
                                 </div>
                                 <input class="form-control text-center font-weight-bold" required type="number" step="1" min="1" name="quantity" id="quantity" value="1" max="9999">
                                 <div class="input-group-append">
