@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\SubCategory;
@@ -31,46 +33,9 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        $request->validate([
-            'price' => 'required',
-            'producer' => 'required|max:20',
-            'model' => 'required|max:100',
-            'model_year' => 'required',
-            'frame' => 'required|max:20',
-            'fork_type' => 'required|max:20',
-            'frame_size' => 'required',
-            'front_lift' => 'required',
-            'fork' => 'required|max:100',
-            'rear_shock' => 'required|max:100',
-            'front_tire' => 'required|max:100',
-            'rear_tire' => 'required|max:100',
-            'rim' => 'required|max:100',
-            'cassette_count' => 'required',
-            'front_cassette_count' => 'required',
-            'chain' => 'required|max:100',
-            'drive_train' => 'required|max:100',
-            'cranks' => 'required|max:100',
-            'cassette' => 'required|max:100',
-            'derailleur' => 'required|max:100',
-            'brakes' => 'required|max:100',
-            'front_rotor' => 'required|max:100',
-            'rear_rotor' => 'required|max:100',
-            'stem' => 'required|max:100',
-            'handbar' => 'required|max:100',
-            'grip' => 'required|max:100',
-            'seat_post' => 'required|max:100',
-            'seat' => 'required|max:100',
-            'alt_text_1'=> 'required|max:20',
-            'alt_text_2'=> 'required|max:20',
-            'alt_text_3'=> 'required|max:20',
-            'alt_text_4'=> 'required|max:20',
-            'image_1 => required|mimes:png,jpg',
-            'image_2 => required|mimes:png,jpg',
-            'image_3 => required|mimes:png,jpg',
-            'image_4 => required|mimes:png,jpg',
-        ]);
+
 
         $product = Product::create([
                 'price' => $request->price,
@@ -143,42 +108,8 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
-        $request->validate([
-            'price' => 'required',
-            'producer' => 'required|max:20',
-            'model' => 'required|max:100',
-            'model_year' => 'required',
-            'frame' => 'required|max:20',
-            'fork_type' => 'required|max:20',
-            'frame_size' => 'required|max:1',
-            'front_lift' => 'required',
-            'fork' => 'required|max:100',
-            'rear_shock' => 'required|max:100',
-            'front_tire' => 'required|max:100',
-            'rear_tire' => 'required|max:100',
-            'rim' => 'required|max:100',
-            'cassette_count' => 'required',
-            'front_cassette_count' => 'required',
-            'chain' => 'required|max:100',
-            'drive_train' => 'required|max:100',
-            'cranks' => 'required|max:100',
-            'cassette' => 'required|max:100',
-            'derailleur' => 'required|max:100',
-            'brakes' => 'required|max:100',
-            'front_rotor' => 'required|max:100',
-            'rear_rotor' => 'required|max:100',
-            'stem' => 'required|max:100',
-            'handbar' => 'required|max:100',
-            'grip' => 'required|max:100',
-            'seat_post' => 'required|max:100',
-            'seat' => 'required|max:100',
-            'image_1 => mimes:png,jpg',
-            'image_2 => mimes:png,jpg',
-            'image_3 => mimes:png,jpg',
-            'image_4 => mimes:png,jpg',
-        ]);
 
         $product = Product::find($id);
         $product->update([
