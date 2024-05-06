@@ -16,10 +16,6 @@ class IndexController extends Controller
        $offer_products = Product::where([['is_offer_of_the_week', true], ['is_new', false]])->take(3)->get();
        return view('layout/index', ['new_products' => $new_products, 'offer_products' => $offer_products]); 
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
@@ -30,13 +26,13 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         //
     }
@@ -52,16 +48,15 @@ class IndexController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        //
-    }
+    public function destroy($id)
+    { 
+    } 
 }
+

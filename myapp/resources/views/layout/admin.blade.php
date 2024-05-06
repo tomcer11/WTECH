@@ -8,17 +8,21 @@
     <link rel="stylesheet" href="{{ asset('/css/ADMIN_login.css') }}">
     
 <body>
-    @include('layout.partials.admin-navbar')
+    @can('admin', $user)
+        
+        @include('layout.partials.admin-navbar')
 
-    <main>
-        <section class="container-fluid mt-3">
-                @yield('content')  
-        </section>
-    </main>
-    
+        <main>
+            <section class="container-fluid mt-3">
+                    @yield('content')  
+            </section>
+        </main>
+        
 
-    @include('layout.partials.script')
+        @include('layout.partials.script')
+    @else
 
+    @endcan
 
 </body>
 

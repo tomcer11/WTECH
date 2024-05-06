@@ -16,7 +16,12 @@ Route::get('/', function () {
 
 
 
-Route::resource('admin', ProductController::class);
+
+Route::get('admin', [ProductController::class, 'index'])->middleware(['auth', 'can:index, product']);
+Route::post('admin', [ProductController::class, 'store'])->middleware(['auth', 'can:store, product']);
+Route::get('admin/{id}', [ProductController::class, 'show']);
+Route::put('admin/{id}', [ProductController::class, 'update'])->middleware(['auth'], 'can:update, product');
+Route::delete('admin/{id}', [ProductController::class, 'update'])->middleware(['auth', 'can:destroy, product']);
 Route::resource('/', IndexController::class);
 
 //Route::get('admin', [ProductController::class, 'index'])->middleware('auth');
