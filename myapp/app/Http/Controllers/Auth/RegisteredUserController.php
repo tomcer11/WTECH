@@ -19,7 +19,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('layout.register');
     }
 
     /**
@@ -30,14 +30,20 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'first_name' => ['required', 'string', 'max:50'],
+            'last_name' => ['required', 'string', 'max:50'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:254', 'unique:'.User::class],
+            'phone' => ['required', 'string', 'max:12'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            //'password_confirmation' => ['required', 'confirmed', Rules\Password::defaults()]
         ]);
 
         $user = User::create([
-            'name' => $request->name,
+            'role' => 'user',
+            'name' => $request->first_name,
+            'surname' => $request->last_name,
             'email' => $request->email,
+            'phone_number' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
 
@@ -45,6 +51,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect('/');
     }
 }

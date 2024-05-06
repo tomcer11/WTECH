@@ -12,7 +12,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', [UserController::class, 'register']);
+//Route::get('/register', [UserController::class, 'register']);
 
 
 

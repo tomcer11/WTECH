@@ -26,12 +26,12 @@
                 </div>
             </div>
             <div class="txt_field">
-                <input type="em" name="email" required>
+                <input type="email" name="email" required>
                 <span></span>
                 <label>E-mail</label>
             </div>
             <div class="txt_field">
-                <input type="tel" name="phone" required>
+                <input type="text" name="phone" required>
                 <span></span>
                 <label>Telefónne číslo</label>
             </div>
@@ -42,14 +42,14 @@
                     <label>Heslo</label>
                 </div>
                 <div class="txt_field" style="width: 48%;">
-                    <input type="password" name="confirm_password" required>
+                    <input type="password" name="password_confirmation" required>
                     <span></span>
                     <label>Potvrdenie hesla</label>
                 </div>
             </div>
             <input type="submit" value="Registrovať sa">
             <div class="signup_link">
-                Už máte konto? <a href="LOGIN_page.html">Prihlásiť sa</a>
+                Už máte konto? <a href="login">Prihlásiť sa</a>
             </div>
         </form>
     </div>

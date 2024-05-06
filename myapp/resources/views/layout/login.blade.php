@@ -10,23 +10,25 @@
 <body>
     <div class="center">
         <h1>Prihlásenie</h1>
-        <form method="post">
+        <form action="/login" method="POST">
+          @csrf
           <div class="txt_field">
-              <input type="text" required>
+              <input type="email" name="email" required>
               <span></span>
               <label>E-mail</label>
           </div>
 
           <div class="txt_field">
-              <input type="password" required>
+              <input type="password" name="password" required>
               <span></span>
               <label>Heslo</label>
           </div>
 
           <input type="submit" value="Prihlásiť sa">
+          {{-- <button type="submit"> Prihlásiť sa </button>  --}}
           
           <div class="signup_link">
-              Nemáte konto <a href="REGISTRACIA.html">Zaregistrovať sa</a>
+              Nemáte konto <a href="register">Zaregistrovať sa</a>
           </div>
         </form>
     </div>

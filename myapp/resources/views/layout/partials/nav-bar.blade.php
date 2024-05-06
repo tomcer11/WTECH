@@ -75,7 +75,11 @@
             @auth
                 <ul class="navbar-nav mb-2 p mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="Login_a_Registrácia/LOGIN_page.html">Odhlasit sa</a>
+                        
+                        <form action="logout" method="POST">
+                            @csrf
+                            <button class="nav-link text-white" type="submit">Odhlasit sa</button>
+                        </form>
                     </li>
                 </ul>  
             @endauth
@@ -83,7 +87,12 @@
             @guest
             <ul class="navbar-nav mb-2 p mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="Login_a_Registrácia/LOGIN_page.html">Prihlásiť sa</a>
+                    {{-- <form action="login" method="POST">
+                        @csrf
+                        <button class="nav-link text-white" type="submit">Prihlasit sa</button>
+                    </form> --}}
+                    @csrf
+                    <a class="nav-link text-white" href="login">Prihlásiť sa</a>
                 </li>
             </ul>
             @endguest
