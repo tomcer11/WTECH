@@ -69,67 +69,67 @@
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Zapletané kolesá</th>
-                                                <td class="hodnota">{{ $product->rim }}</td>
+                                                <td class="hodnota"> {{ $product->rim }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Počet pastorkov</th>
-                                                <td class="hodnota">{{ $product->cassette_count }}</td>
+                                                <td class="hodnota"> {{ $product->cassette_count }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Počet prevodníkov</th>
-                                                <td class="hodnota">{{ $product->front_cassette_count }}</td>
+                                                <td class="hodnota"> {{ $product->front_cassette_count }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Reťaz</th>
-                                                <td class="hodnota">{{ $product->chain }}</td>
+                                                <td class="hodnota"> {{ $product->chain }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Radenie</th>
-                                                <td class="hodnota">{{ $product->drive_train }}</td>
+                                                <td class="hodnota"> {{ $product->drive_train }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Kľuky</th>
-                                                <td class="hodnota">{{ $product->cranks }}</td>
+                                                <td class="hodnota"> {{ $product->cranks }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Kazeta</th>
-                                                <td class="hodnota">{{ $product->cassette }}</td>
+                                                <td class="hodnota"> {{ $product->cassette }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Prehadzovač</th>
-                                                <td class="hodnota">{{ $product->derailleur }}</td>
+                                                <td class="hodnota"> {{ $product->derailleur }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Brzdy</th>
-                                                <td class="hodnota">{{ $product->brakes }}</td>
+                                                <td class="hodnota"> {{ $product->brakes }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Predný kotúč</th>
-                                                <td class="hodnota">{{ $product->front_rotor }}</td>
+                                                <td class="hodnota"> {{ $product->front_rotor }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Zadný kotúč</th>
-                                                <td class="hodnota">{{ $product->rear_rotor }}</td>
+                                                <td class="hodnota"> {{ $product->rear_rotor }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Predstavec</th>
-                                                <td class="hodnota">{{ $product->stem }}</td>
+                                                <td class="hodnota"> {{ $product->stem }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Riadidlá</th>
-                                                <td class="hodnota">{{ $product->handbar }}</td>
+                                                <td class="hodnota"> {{ $product->handbar }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Rukoväte</th>
-                                                <td class="hodnota">{{ $product->grip }}</td>
-                                            </tr>
+                                                <td class="hodnota"> {{ $product->grip }} </td>
+                                            </tr> 
                                             <tr>
                                                 <th class="cast" scope="row">Sedlovka</th>
-                                                <td class="hodnota">{{ $product->seat_post }}</td>
+                                                <td class="hodnota"> {{ $product->seat_post }} </td>
                                             </tr>
                                             <tr>
                                                 <th class="cast" scope="row">Sedlo</th>
-                                                <td class="hodnota">{{ $product->seat }}</td>
+                                                <td class="hodnota"> {{ $product->seat }} </td>
                                             </tr>
                                         </tbody>
                                     </table>

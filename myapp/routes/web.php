@@ -3,11 +3,18 @@
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+
+use App\Http\Controllers\UserController;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/register', [UserController::class, 'register']);
+
+
 
 Route::resource('admin', ProductController::class);
 Route::resource('/', IndexController::class);
