@@ -8,13 +8,9 @@ use App\Http\Controllers\UserController;
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-//Route::get('/register', [UserController::class, 'register']);
 
 
+Route::get('/detail/{id}', [ProductController::class, 'show']);
 
 Route::resource('admin', ProductController::class);
 Route::resource('/', IndexController::class);

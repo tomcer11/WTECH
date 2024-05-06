@@ -5,7 +5,7 @@
             <div class="card-body">
                     <h5 class="card-title">
                         <a class="link-dark link-danger-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" 
-                        href="#">
+                        href="{{'detail/'.$id_product }}">
                             {{ $name }}
                             </a>
                     </h5>
