@@ -28,7 +28,7 @@
                 <h2 class="display-4"><strong>Ponuka týždňa</strong></h2>
                 <p>Zaujimavé ponuky, ktoré sme si pre vás pripravili pre tento týždeň.</p>
                 <div class="row justify-content-center align-items-center">
-                    @yield('offer')
+                    @include('index.offer')
                 </div>
             </div>
         </section>
@@ -38,7 +38,7 @@
                 <h2 class="display-4"><strong>Novinky týždňa</strong></h2>
                 <p>Nenechajte si újsť tieto skvelé novinky.</p>
                 <div class="row justify-content-center">
-                    @yield('new')
+                    @include('index.new')
                 </div>   
             </div>
         

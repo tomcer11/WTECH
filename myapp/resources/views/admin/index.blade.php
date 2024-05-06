@@ -280,12 +280,12 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="is_new" class="form-check-label">Je novy?</label>
-                                            <input value="{{ $product->is_new }}" name="is_new" type="checkbox" class="form-check-input" id="is_new"
+                                            <input value="1" name="is_new" type="checkbox" class="form-check-input" id="is_new"
                                             {{$product->is_new === true ? 'checked':''}}>
                                         </div>
                                         <div class="mb-3">
                                             <label for="is_offer_of_the_week" class="form-check-label">Je to specialna ponuka?</label>
-                                            <input value="{{ $product->is_offer_of_the_week }}" name="is_offer_of_the_week" type="checkbox" class="form-check-input" 
+                                            <input value="1" name="is_offer_of_the_week" type="checkbox" class="form-check-input" 
                                             id="is_offer_of_the_week" {{$product->is_offer_of_the_week === true ? 'checked':''}}>
                                         </div>
                                         <div class="input-group mb-3">
