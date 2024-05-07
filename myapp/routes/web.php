@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/detail/{id}', [ProductController::class, 'show']);
 
+
+
 Route::resource('admin', ProductController::class);
 Route::resource('/', IndexController::class);
 
