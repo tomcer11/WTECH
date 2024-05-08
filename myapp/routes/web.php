@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/detail/{id}', [ProductController::class, 'show']);
 
 
-Route::get('admin', [ProductController::class, 'index'])->middleware(['auth', 'can:index, product']);
-Route::post('admin', [ProductController::class, 'store'])->middleware(['auth', 'can:store, product']);
+Route::get('admin', [ProductController::class, 'index'])->middleware(['auth','can:viewAny, App\Models\Product']);
+Route::post('admin', [ProductController::class, 'store'])->middleware(['auth', 'can:create, App\Models\Product']);
 Route::get('admin/{id}', [ProductController::class, 'show']);
-Route::put('admin/{id}', [ProductController::class, 'update'])->middleware(['auth'], 'can:update, product');
-Route::delete('admin/{id}', [ProductController::class, 'update'])->middleware(['auth', 'can:destroy, product']);
+Route::put('admin/{id}', [ProductController::class, 'update'])->middleware(['auth', 'can:update, App\Models\Product']);
+Route::delete('admin/{id}', [ProductController::class, 'update'])->middleware(['auth', 'can:delete, App\Models\Product']);
 Route::resource('/', IndexController::class);
 
 //Route::get('admin', [ProductController::class, 'index'])->middleware('auth');

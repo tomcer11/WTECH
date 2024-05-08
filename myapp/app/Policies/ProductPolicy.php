@@ -2,31 +2,43 @@
 
 namespace App\Policies;
 
+use App\Models\Product;
 use App\Models\User;
+use Illuminate\Auth\Access\Response;
+use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\Auth;
 
 class ProductPolicy
 {
     /**
-     * Create a new policy instance.
+     * Determine whether the user can view any models.
      */
-    public function __construct()
+    public function viewAny(User $user): bool
     {
-        //
-    }
-
-    public function index(User $user) {
         return $user->role === 'admin';
     }
 
-    public function store(User $user) {
+    /**
+     * Determine whether the user can create models.
+     */
+    public function create(User $user): bool
+    {
         return $user->role === 'admin';
     }
 
-    public function update($user) {
+    /**
+     * Determine whether the user can update the model.
+     */
+    public function update(User $user, Product $product): bool
+    {
         return $user->role === 'admin';
     }
 
-    public function destroy(User $user) {
+    /**
+     * Determine whether the user can delete the model.
+     */
+    public function delete(User $user, Product $product): bool
+    {
         return $user->role === 'admin';
     }
 }

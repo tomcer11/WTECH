@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('/css/ADMIN_login.css') }}">
     
 <body>
-    @can('admin', $user)
+
         
         @include('layout.partials.admin-navbar')
 
@@ -20,9 +20,9 @@
         
 
         @include('layout.partials.script')
-    @else
 
-    @endcan
+
+
 
 </body>
 
