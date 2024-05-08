@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/detail/{id}', [ProductController::class, 'show']);
 
+Route::get('/category/{id}', [IndexController::class, 'show_category']);
+
 
 Route::get('admin', [ProductController::class, 'index'])->middleware(['auth','can:viewAny, App\Models\Product']);
 Route::post('admin', [ProductController::class, 'store'])->middleware(['auth', 'can:create, App\Models\Product']);

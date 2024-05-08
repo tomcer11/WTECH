@@ -14,4 +14,9 @@ class MainCategory extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function subCategory(): HasMany
+    {
+        return $this->hasMany(SubCategory::class)->orderBy('id');
+    }
 }

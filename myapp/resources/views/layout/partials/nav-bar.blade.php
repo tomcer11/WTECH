@@ -16,7 +16,7 @@
                     <div class="dropdown-menu bicykle-dropdown">
                         <ul>
                             <li>
-                                <a class="dropdown-item" href="Vsetky_Kategorie_rozdelenie/HORSKE.html">HORSKE</a>
+                                <a class="dropdown-item" href="/category/1">HORSKE</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="HORSKE/DOWNHILL_page.html">DOWNHILL</a>
@@ -34,7 +34,7 @@
 
                         <ul>
                             <li>
-                                <a class="dropdown-item" href="Vsetky_Kategorie_rozdelenie/DAMSKE.html">DAMSKE</a>
+                                <a class="dropdown-item" href="/category/2">DAMSKE</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">URBAN</a>
@@ -45,7 +45,7 @@
                         </ul>
                         <ul>
                             <li>
-                                <a class="dropdown-item" href="Vsetky_Kategorie_rozdelenie/EBIKE.html">EBIKE</a>
+                                <a class="dropdown-item" href="/category/3">EBIKE</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">HORSKE</a>
@@ -56,7 +56,7 @@
                         </ul>
                         <ul>
                             <li>
-                                <a class="dropdown-item" href="Vsetky_Kategorie_rozdelenie/CESTNE.html">CESTNE</a>
+                                <a class="dropdown-item" href="/category/4">CESTNE</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">RACING</a>
@@ -91,7 +91,7 @@
                         @csrf
                         <button class="nav-link text-white" type="submit">Prihlasit sa</button>
                     </form> --}}
-                    @csrf
+                    {{-- @csrf --}}
                     <a class="nav-link text-white" href="login">Prihlásiť sa</a>
                 </li>
             </ul>

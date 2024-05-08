@@ -19,7 +19,11 @@ return new class extends Migration
 
         Schema::create('sub_categories', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('main_category_id');
             $table->string('category', length: 10);
+            $table->text('description');
+            $table->string('banner_path', length: 200);
+            $table->string('small_banner_path', length: 200);
             $table->timestampsTz();
         });
 
