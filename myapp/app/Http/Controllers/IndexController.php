@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MainCategory;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
@@ -16,6 +17,13 @@ class IndexController extends Controller
        $offer_products = Product::where([['is_offer_of_the_week', true], ['is_new', false]])->take(3)->get();
        return view('layout/index', ['new_products' => $new_products, 'offer_products' => $offer_products]); 
     }
+
+
+    public function show_category(string $id) {
+        $category = MainCategory::find($id);
+        return view('layout.category')->with('category', $category);
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -64,4 +72,6 @@ class IndexController extends Controller
     {
         //
     }
+
+    
 }

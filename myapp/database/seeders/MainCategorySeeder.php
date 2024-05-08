@@ -15,13 +15,13 @@ class MainCategorySeeder extends Seeder
     public function run(): void
     {
         DB::table('main_categories')->insert([
-            'category' => 'Horske',
+            'category' => 'Horské',
             'created_at' => Carbon::now(timezone: true),
             'updated_at' => Carbon::now(timezone: true)
         ]);
         
         DB::table('main_categories')->insert([
-            'category' => 'Damske',
+            'category' => 'Dámske',
             'created_at' => Carbon::now(timezone: true),
             'updated_at' => Carbon::now(timezone: true)
         ]);
@@ -33,7 +33,7 @@ class MainCategorySeeder extends Seeder
         ]);
 
         DB::table('main_categories')->insert([
-            'category' => 'Cestne',
+            'category' => 'Cestné',
             'created_at' => Carbon::now(timezone: true),
             'updated_at' => Carbon::now(timezone: true)
         ]);
