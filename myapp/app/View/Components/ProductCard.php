@@ -9,16 +9,17 @@ use Illuminate\View\Component;
 class ProductCard extends Component
 {
 
-    public $name, $price, $photoPath, $altText;
+    public $name, $price, $photoPath, $altText, $id;
     /**
      * Create a new component instance.
      */
-    public function __construct($name, $price, $photoPath, $altText)
+    public function __construct($name, $price, $photoPath, $altText, $id)
     {
         $this->name = $name;
         $this->price = $price;
         $this->photoPath = $photoPath;
         $this->altText = $altText;
+        $this->id = $id;
     }
 
     /**
