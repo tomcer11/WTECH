@@ -12,6 +12,8 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+
     public function orderSpecification(): HasOne
     {
         return $this->hasOne(orderSpecification::class);
@@ -32,7 +34,7 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function product(): BelongsToMany
+    public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class);
     }

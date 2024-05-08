@@ -5,15 +5,10 @@
 @foreach ($products as $product)
 <div class="card mb-3 cart">
     <div class="row g-0 align-items-center">
-        <div class="col-2">
-            @foreach ( $product->images as $image)
-                <img src="{{asset('storage/'.$image->name)}}" class="img-fluid pb" alt="{{$image->alt_text}}">
-            @endforeach 
-        </div>
-        <div class="col-10">
+        <div class="col-12">
             <div class="card-body">
                 <div class="row align-items-center justify-content-between"> 
-                    <div class="col-3 me-auto">
+                    <div class="col-5 me-auto">
                         <h5 class="card-title">{{ $product->producer }}</h5>
                         <p class="card-text text-secondary">{{ $product->model }}</p>
                     </div>
@@ -288,29 +283,15 @@
                                             <input value="1" name="is_offer_of_the_week" type="checkbox" class="form-check-input" 
                                             id="is_offer_of_the_week" {{$product->is_offer_of_the_week === true ? 'checked':''}}>
                                         </div>
-                                        <div class="input-group mb-3">
-                                            <label class="input-group" for="image-1">Obrázok 1:</label>
-                                            <input name="image_1" type="file" class="form-control" id="image-1">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <label class="input-group" for="image-2">Obrázok 2:</label>
-                                            <input name="image_2" type="file" class="form-control" id="image-2">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <label class="input-group" for="image-3">Obrázok 3:</label>
-                                            <input name="image_3" type="file" class="form-control" id="image-3">
-                                        </div>
-                                        <div class="input-group mb-3">
-                                            <label class="input-group" for="image-4">Obrázok 4:</label>
-                                            <input name="image_4" type="file" class="form-control" id="image-4">
-                                        </div>
-                                        @foreach ($product->images as $image)
-                                            <div class="mb-3">
-                                                <label for="{{'alt-text-'.$loop->iteration }}" class="col-form-label">Alt text pre obrazok {{ $loop->iteration }}:</label>
-                                                <input value="{{ $image->alt_text }}" name="{{'alt_text_'.$loop->iteration }}" class="form-control" id="{{'alt-text-'.$loop->iteration }}" required>
-                                            </div>
-                                        @endforeach
                                         <div class="mb-3">
+                                        <div class="input-group mb-3">
+                                            <label class="input-group" for="image">Obrázok:</label>
+                                            <input name="image" type="file" class="form-control" id="image">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="alt-text" class="col-form-label">Alt text pre obrazok:</label>
+                                            <input name="alt_text" class="form-control" id="alt-text">
+                                        </div>
                                         <label for="main-category" class="col-form-label">Hlavna kategoria:</label>
                                         <select name="main_category" class="form-select" id="main-category">
                                             @foreach ($main_categories as $main_category)
@@ -326,7 +307,22 @@
                                             @endforeach
                                         </select>
                                         </div>
+                                        @foreach ( $product->images as $image)
+                                            <img src="{{asset('storage/'.$image->name)}}" class="img-fluid pb" alt="{{$image->alt_text}}">
+
+                                            <div class="mb-3">
+                                                <label for="{{'alt-text-'.$loop->iteration }}" class="col-form-label">Alt text pre obrazok {{ $loop->iteration }}:</label>
+                                                <input value="{{ $image->alt_text }}" name="{{'alt_text_'.$loop->iteration }}" class="form-control" id="{{'alt-text-'.$loop->iteration }}" required>
+                                            </div>
+                                        @endforeach 
                                     </form>
+                                    @foreach ( $product->images as $image)
+                                        <form action="{{ url('image', [$image->id]) }}" method="POST">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="submit" class="btn btn-sm btn-outline-dark" value="Odstrániť obrázok {{$loop->iteration}}"/>
+                                        </form>
+                                    @endforeach 
                                 </div>
                                 <div class="modal-footer">
                                 <button form="edit_product" type="submit" class="btn btn-dark">Upraviť produkt</button>

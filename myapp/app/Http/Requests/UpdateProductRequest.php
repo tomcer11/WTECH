@@ -50,10 +50,7 @@ class UpdateProductRequest extends FormRequest
             'grip' => 'required|max:100',
             'seat_post' => 'required|max:100',
             'seat' => 'required|max:100',
-            'image_1 => mimes:png,jpg',
-            'image_2 => mimes:png,jpg',
-            'image_3 => mimes:png,jpg',
-            'image_4 => mimes:png,jpg',
+            'image' => 'mimes:png,jpg',
         ];
     }
 }

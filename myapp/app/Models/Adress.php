@@ -10,7 +10,7 @@ class Adress extends Model
 {
     use HasFactory;
 
-    public function orderSpecification(): HasMany
+    public function orderSpecifications(): HasMany
     {
         return $this->hasMany(OrderSpecification::class); 
     }

@@ -67,19 +67,19 @@ class ProductController extends Controller
         );
 
 
-        for($i = 1; $i <= 4; $i++){
-            $image = $request->file('image_'.$i);
-            $image->store(options: 'public');
 
-            Image::create([
-                'product_id' => $product->id,
-                'name' => $image->hashName(),
-                'path' => storage_path(),
-                'alt_text' => $request->{'alt_text_'.$i}
-            ]);
-        }
+        $image = $request->file('image');
+        $image->store(options: 'public');
 
-        return redirect()->route('admin.index');
+        Image::create([
+            'product_id' => $product->id,
+            'name' => $image->hashName(),
+            'path' => storage_path(),
+            'alt_text' => $request->{'alt_text'}
+        ]);
+       
+
+        return redirect('admin');
     }
 
     /**
@@ -137,18 +137,21 @@ class ProductController extends Controller
 
         $images = $product->images;
         
-        for($i = 1; $i <= 4; $i++){
-            if($request->file('image_'.$i) != null) {
-                $image = $request->file('image_'.$i);
-                $image->store(options: 'public');
-
-                Storage::disk('public')->delete($images[$i - 1]->name);
-
-                $images[$i - 1]->name = $image->hashName();
-                $images[$i - 1]->path = storage_path();
+        for($i = 1; $i <= count($images); $i++){
                 $images[$i - 1]->alt_text = $request->{'alt_text_'.$i};
                 $images[$i - 1]->save();
-            }
+        }
+
+        if($request->file('image') != null) {
+
+            $image = $request->file('image');
+            $image->store(options: 'public');
+            Image::create([
+                'product_id' => $product->id,
+                'name' => $image->hashName(),
+                'path' => storage_path(),
+                'alt_text' => $request->{'alt_text'}
+            ]);
         }
 
         return redirect('admin');
@@ -160,6 +163,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     { 
+        dd($id);
         $product = Product::find($id);
         $images = $product->images;
         foreach($images as $image) {

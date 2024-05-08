@@ -50,10 +50,7 @@ class StoreProductRequest extends FormRequest
             'grip' => 'required|max:100',
             'seat_post' => 'required|max:100',
             'seat' => 'required|max:100',
-            'image_1 => required|mimes:png,jpg',
-            'image_2 => required|mimes:png,jpg',
-            'image_3 => required|mimes:png,jpg',
-            'image_4 => required|mimes:png,jpg',
+            'image' => 'required|mimes:png,jpg',
         ];
     }
 }

@@ -18,7 +18,7 @@ class Product extends Model
     protected $guarded = ['id'];
     use HasFactory;
 
-    public function order(): BelongsToMany
+    public function orders(): BelongsToMany
     {
         return $this->belongsToMany(Order::class);
     }

@@ -10,7 +10,9 @@ class Payment extends Model
 {
     use HasFactory;
 
-    public function order(): HasMany
+    protected $guarded = ['id'];
+
+    public function orders(): HasMany
     {
         return $this->hasMany(Order::class);
     }

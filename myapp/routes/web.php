@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 
@@ -17,10 +20,13 @@ Route::get('admin', [ProductController::class, 'index'])->middleware(['auth','ca
 Route::post('admin', [ProductController::class, 'store'])->middleware(['auth', 'can:create, App\Models\Product']);
 Route::get('admin/{id}', [ProductController::class, 'show']);
 Route::put('admin/{id}', [ProductController::class, 'update'])->middleware(['auth', 'can:update, App\Models\Product']);
-Route::delete('admin/{id}', [ProductController::class, 'update'])->middleware(['auth', 'can:delete, App\Models\Product']);
+Route::delete('admin/{id}', [ProductController::class, 'destroy'])->middleware(['auth', 'can:delete, App\Models\Product']);
+Route::delete('image/{id}', [ImageController::class, 'destroy'])->middleware('auth', 'can:delete, App\Models\Product');
 Route::resource('/', IndexController::class);
 
-//Route::get('admin', [ProductController::class, 'index'])->middleware('auth');
+Route::get('cart', [CartController::class, 'index']);
+Route::delete('cart/{id}/{count}', [CartController::class, 'deleteCartItem']);
+Route::post('detail/cart_add/{id}/{count}', [CartController::class, 'addToCart']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

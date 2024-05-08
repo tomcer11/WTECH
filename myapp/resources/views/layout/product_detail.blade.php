@@ -84,14 +84,17 @@
                                     <button class="btn btn-outline-secondary border-left-0 btn-cart-amount-plus" type="button">+</button>
                                 </div>
                             </div>
-                        
-                            <button id="button-cart" class="btn btn-primary flex-grow-1 ml-2">
-                                
-                                <span class="text-default">
-                                    Vložiť do košíka
-                                </span>
-                                
-                            </button>
+                            <form action="cart_add/{{$product->id}}/5" method="POST">
+                                @csrf
+                                <button type="submit"  id="button-cart" class="btn btn-primary flex-grow-1 ml-2">
+                                    
+                                    <span class="text-default">
+                                        Vložiť do košíka
+                                    </span>
+                                    
+                                </button>
+                            </form>
+                           
                         </div>
                         
                     
