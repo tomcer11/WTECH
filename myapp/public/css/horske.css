@@ -1,0 +1,18 @@
+#Nadpis {
+    color: white;
+    font-weight: bold;
+    font-size: 4vw;
+    text-align: center;
+    padding-top: 12%;
+}
+
+#Text {
+    color: white;
+    font-size: 2vw;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.card-img-overlay {
+    width: auto;
+}

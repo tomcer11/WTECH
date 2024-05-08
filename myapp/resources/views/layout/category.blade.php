@@ -32,7 +32,7 @@
                     <div class="col-sm-4 col-7 d-flex justify-content-center">
                         <div class="card text-center">
                             <img src="{{asset('storage/'.$image->small_banner_path)}}" class="card-img" alt="kategoria {{ $image->category }}">
-                            <a href="#">
+                            <a href="{{ url('category/'.$category->id.'/sub-category/'.$image->id) }}">
                                 <div class="card-img-overlay">
                                     <h5 class="kategoria">{{ $image->category }}</h5>
                                 </div>
@@ -49,7 +49,7 @@
                         <div class="col-sm-4 col-7 d-flex justify-content-center">
                             <div class="card text-center">
                                 <img src="{{asset('storage/'.$image->small_banner_path)}}" class="card-img" alt="kategoria {{ $image->category }}">
-                                <a href="#">
+                                <a href="{{ url('category/'.$category->id.'/sub-category/'.$image->id) }}">
                                     <div class="card-img-overlay">
                                         <h5 class="kategoria">{{ $image->category }}</h5>
                                     </div>

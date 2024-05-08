@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{url('/')}}">
             <img src="{{asset('storage/Obrazky/downhill_biker.jpg')}}" alt="logo containing downhill biker" width="40" 
                     height="40" class="d-inline-block align-text-top">
         </a>
@@ -16,31 +16,31 @@
                     <div class="dropdown-menu bicykle-dropdown">
                         <ul>
                             <li>
-                                <a class="dropdown-item" href="/category/1">HORSKE</a>
+                                <a class="dropdown-item" href="/category/1">HORSKÉ</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="HORSKE/DOWNHILL_page.html">DOWNHILL</a>
+                                <a class="dropdown-item" href="/category/1/sub-category/1">DOWNHILL</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="HORSKE/ENDURO_page.html">ENDURO</a>
+                                <a class="dropdown-item" href="/category/1/sub-category/2">ENDURO</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="HORSKE/TRAIL_page.html">TRAIL</a>
+                                <a class="dropdown-item" href="/category/1/sub-category/3">TRAIL</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="HORSKE/XC_page.html">XC</a>
+                                <a class="dropdown-item" href="/category/1/sub-category/4">XC</a>
                             </li>
                         </ul>
 
                         <ul>
                             <li>
-                                <a class="dropdown-item" href="/category/2">DAMSKE</a>
+                                <a class="dropdown-item" href="/category/2">DÁMSKE</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">URBAN</a>
+                                <a class="dropdown-item" href="/category/2/sub-category/5">URBAN</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">CROSS</a>
+                                <a class="dropdown-item" href="/category/2/sub-category/6">CROSS</a>
                             </li>
                         </ul>
                         <ul>
@@ -48,21 +48,21 @@
                                 <a class="dropdown-item" href="/category/3">EBIKE</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">HORSKE</a>
+                                <a class="dropdown-item" href="/category/3/sub-category/7">HORSKÉ</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">URBAN</a>
+                                <a class="dropdown-item" href="/category/3/sub-category/8">URBAN</a>
                             </li>
                         </ul>
                         <ul>
                             <li>
-                                <a class="dropdown-item" href="/category/4">CESTNE</a>
+                                <a class="dropdown-item" href="/category/4">CESTNÉ</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">RACING</a>
+                                <a class="dropdown-item" href="/category/4/sub-category/9">RACING</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">GRAVEL</a>
+                                <a class="dropdown-item" href="/category/4/sub-category/10">GRAVEL</a>
                             </li>
                         </ul>
                     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MainCategory;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\SubCategory;
 
 class IndexController extends Controller
 {
@@ -22,6 +23,13 @@ class IndexController extends Controller
     public function show_category(string $id) {
         $category = MainCategory::find($id);
         return view('layout.category')->with('category', $category);
+    }
+
+
+    public function show_sub_category(string $id, string $s_id) {
+        $products = Product::where('sub_category_id', $s_id)->get();
+        $sub_category = SubCategory::find($s_id);
+        return view('layout.sub_category')->with(['sub_category' => $sub_category, 'products' => $products]);
     }
     
 

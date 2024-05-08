@@ -13,9 +13,11 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/detail/{id}', [ProductController::class, 'show']);
+// Route::get('/detail/{id}', [ProductController::class, 'show']);
 
 Route::get('/category/{id}', [IndexController::class, 'show_category']);
+Route::get('/category/{id}/sub-category/{s_id}', [IndexController::class, 'show_sub_category']);
+Route::get('/category/{id}/sub-category/{s_id}/detail/{product_id}', [ProductController::class, 'show']);
 
 
 Route::get('admin', [ProductController::class, 'index'])->middleware(['auth','can:viewAny, App\Models\Product']);
