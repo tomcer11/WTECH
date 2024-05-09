@@ -84,7 +84,7 @@
                                     <button class="btn btn-outline-secondary border-left-0 btn-cart-amount-plus" type="button">+</button>
                                 </div>
                             </div>
-                            <form action="cart_add/{{$product->id}}/5" method="POST">
+                            <form action="{{url('/category/'.$product->main_category_id.'/sub-category/'.$product->sub_category_id.'/detail/'.$product->id.'/cart_add/'.$product->id.'/5')}}" method="POST">
                                 @csrf
                                 <button type="submit"  id="button-cart" class="btn btn-primary flex-grow-1 ml-2">
                                     

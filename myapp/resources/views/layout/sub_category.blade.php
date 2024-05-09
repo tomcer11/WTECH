@@ -157,26 +157,91 @@
                         <div class="col-auto pt-2">
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  Usporiadanie produktov
+                                    @if ($sort) {{ $sort === 'asc' ? 'Od najlacnejších' : 'Od najdrahších' }} @else Odporúčané @endif
                                 </button>
                                 <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">Od najmenších po najväčšie</a></li>
-                                  <li><a class="dropdown-item" href="#">Od najväčších po najmenšie</a></li>
+                                    @if (!$sort || $sort !== 'asc')
+                                        <li>
+                                            <a class="dropdown-item" href="{{ url('/category/'.$sub_category->main_category_id.'/sub-category/'.$sub_category->id.'?sort=asc')}}">Od najlacnejších</a>
+                                        </li>
+                                    @endif
+                                    @if (!$sort || $sort !== 'desc')
+                                        <li>
+                                            <a class="dropdown-item" href="{{ url('/category/'.$sub_category->main_category_id.'/sub-category/'.$sub_category->id.'?sort=desc')}}">Od najdrahších</a>
+                                        </li>
+                                    @endif
+                                    @if ($sort)
+                                        <li>
+                                            <a class="dropdown-item" href="{{ url('/category/'.$sub_category->main_category_id.'/sub-category/'.$sub_category->id)}}">Odporúčané</a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
                     </div>
                     
+                    @foreach ($products->chunk(2) as $row)
+                    <div class="row g-0 justify-content-between pt-5">
+                        @foreach ($row as $product)
+                        <div class="col-9 col-md-5 col-lg-2">
+                            <div class="p-1">
+                                <div class="card" style="width: 10rem;">
+                                    <img src="{{ asset('storage/'.$product->images[0]->name) }}" class="card-img-top" alt="{{ $product->model }}">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">
+                                            <a class="link-dark link-danger-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                href="{{url('category/'.$product->main_category_id.'/sub-category/'.$sub_category->id.'/detail/'.$product->id)}}">
+                                                {{ $product->producer }} {{ $product->model }}
+                                            </a>
+                                        </h5>
+                                        <p class="card-text text-dark display-6 fw-bold">{{ $product->price }}</p>
+                                        <a href="{{url('category/'.$product->main_category_id.'/sub-category/'.$sub_category->id.'/detail/'.$product->id)}}" class="btn btn-danger">Buy</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    @endforeach
 
-                    @php
+                    {{-- {{ $products->links() }} --}}
+
+                    <div class="row justify-content-center mt-5">
+                        <div class="col-auto">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $products->previousPageUrl() . ($sort && $products->currentPage() > 1 ? '&sort=' . $sort : '') }}" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    @for ($i = 1; $i <= $products->lastPage(); $i++)
+                                        <li class="page-item">
+                                            <a class="page-link @if ($i == $products->currentPage()) active-page @endif" href="{{ $products->url($i) . ($sort ? '&sort=' . $sort : '') }}">{{ $i }}</a>
+                                        </li>
+                                    @endfor
+                                    <li class="page-item">
+                                        <a class="page-link" href="{{ $products->nextPageUrl() . ($sort && $products->hasMorePages() ? '&sort=' . $sort : '') }}" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+
+
+
+                    {{-- @php
                     $productsCount = count($products);
                     $rowsCount = ceil($productsCount / 4);
                     $productsLeft = $productsCount;
                     $startIndex = 0;
-                    @endphp
+                    @endphp --}}
 
 
-                    @for ($i = 0; $i < $rowsCount; $i++)
+                    {{-- @for ($i = 0; $i < $rowsCount; $i++)
                     <div class="row g-0 justify-content-between pt-5">
                         @php
                         $productsInRow = min(4, $productsLeft);
@@ -228,7 +293,7 @@
                                 </ul>
                             </nav>
                         </div>
-                    </div>
+                    </div> --}}
                     
                     
                     {{-- <div class="row justify-content-center mt-5">

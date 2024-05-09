@@ -30,7 +30,7 @@ Route::resource('/', IndexController::class);
 
 Route::get('cart', [CartController::class, 'index']);
 Route::delete('cart/{id}/{count}', [CartController::class, 'deleteCartItem']);
-Route::post('detail/cart_add/{id}/{count}', [CartController::class, 'addToCart']);
+Route::post('/category/{m_id}/sub-category/{s_id}/detail/{product_id}/cart_add/{id}/{count}', [CartController::class, 'addToCart']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

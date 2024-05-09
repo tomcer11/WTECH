@@ -76,7 +76,7 @@
                 <ul class="navbar-nav mb-2 p mb-lg-0">
                     <li class="nav-item">
                         
-                        <form action="logout" method="POST">
+                        <form action="{{url('/logout')}}" method="POST">
                             @csrf
                             <button class="nav-link text-white" type="submit">Odhlasit sa</button>
                         </form>

@@ -26,10 +26,35 @@ class IndexController extends Controller
     }
 
 
-    public function show_sub_category(string $id, string $s_id) {
-        $products = Product::where('sub_category_id', $s_id)->get();
+    public function show_sub_category(Request $request, string $id, string $s_id) {
+        $paginate_count = 1;
+        
+        if ($request->has('sort')) {
+            if ($request->sort === 'asc') {
+                $products = Product::where('sub_category_id', $s_id)->orderBy('price', 'asc')->paginate($paginate_count);
+            } elseif ($request->sort === 'desc') {
+                $products = Product::where('sub_category_id', $s_id)->orderBy('price', 'desc')->paginate($paginate_count);
+            }
+        } else {
+            // Ak nie je nastavený parameter sort, tak zobrazíme produkty bez zmeny poradia
+            $products = Product::where('sub_category_id', $s_id)->paginate($paginate_count);
+        }
+
+
+        
+        $request->session()->put('sort', $request->sort);
+        $sort = $request->session()->get('sort');
+
         $sub_category = SubCategory::find($s_id);
-        return view('layout.sub_category')->with(['sub_category' => $sub_category, 'products' => $products]);
+
+        
+        return view('layout.sub_category')->with([
+            'sub_category' => $sub_category, 
+            'products' => $products,
+            'sort' => $sort,
+        ]);
+
+        //return view('layout.sub_category')->with(['sub_category' => $sub_category, 'products' => $products]);
     }
     
 
