@@ -97,7 +97,7 @@
             </ul>
             @endguest
             
-            <a class="navbar-brand" href="Košík_a_Platby/KOSIK.html">
+            <a class="navbar-brand" href="/cart">
                 <img src="{{ asset('storage/Obrazky/cart.jpg') }}" alt="logo containg downhill biker" width="40" 
                         height="40" class="d-inline-block align-text-top">
             </a>

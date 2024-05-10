@@ -42,7 +42,9 @@
             </div>
         @endforeach
         <h3 class="fs-3 pt-2 ms-5 text-black text-center pb-5 pt-5 border border" style="width:300px">Cena spolu: <span>{{$total_price}}€</span></h3>
-        <button type="button" class="btn btn-lg btn-primary ms-5 mb-5">Dokoncit objednavku</button>
+        <form action="{{url('/cart/delivery')}}" method="GET">
+            <button type="submit" class="btn btn-lg btn-primary ms-5 mb-5">Dokoncit objednavku</button>
+        </form>
     @else
         <p>---Kosik je prazdny---</p>
     @endif

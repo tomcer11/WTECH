@@ -35,9 +35,9 @@ return new class extends Migration
 
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('payment_id')->constrained('payments');
-            $table->foreignId('shipment_id')->constrained('shipments');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('payment_id')->nullable()->constrained('payments');
+            $table->foreignId('shipment_id')->nullable()->constrained('shipments');
+            $table->foreignId('user_id')->nullable()->constrained('users');
             $table->boolean('status');
             $table->decimal('total_price', total: 8, places: 2);
             $table->timestampsTz();
@@ -46,7 +46,7 @@ return new class extends Migration
         Schema::create('order_specifications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained('orders');
-            $table->foreignId('adress_id')->constrained('adresses');
+            $table->foreignId('adress_id')->nullable()->constrained('adresses');
             $table->string('name', length: 50);
             $table->string('surname', length: 50);
             $table->string('email', length: 254);
