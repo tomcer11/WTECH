@@ -14,7 +14,7 @@ class DeliveryController extends Controller
 {
     public function index(Request $request) {
         if(Auth::check()){
-            $order = Order::where('status', false)->first();
+            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $order_spec = $order->orderSpecification;
             if($order_spec->adress_id){
                 return view('delivery.auth-filled-form', ['order' => $order_spec, 'adress' => Adress::find($order_spec->adress_id)]);
@@ -46,7 +46,7 @@ class DeliveryController extends Controller
                 'created_at' => Carbon::now(timezone: true),
                 'updated_at' => Carbon::now(timezone: true)
             ]);
-            $order = Order::where('status', false)->first();
+            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $order_spec = $order->orderSpecification;
             $order_spec->adress_id = $adress->id;
             $order_spec->save();

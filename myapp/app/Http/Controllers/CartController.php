@@ -13,7 +13,7 @@ class CartController extends Controller
 {
     public function index(Request $request) {
         if(Auth::check()){
-            $order = Order::where('status', false)->first();
+            $order = Order::where('status', false)->where('user_id', Auth::id())->first();
             if($order){
                 $total_price = 0;
                 foreach($order->products as $product){
@@ -37,7 +37,7 @@ class CartController extends Controller
     public function addToCart(Request $request, $m_id, $s_id, $p_id, $id, $count) {
         if(Auth::check()){
             $product = Product::find($id);
-            $order = Order::where('status', false)->first();
+            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
             if($order){
                 if(!$order->products()->where('product_id', $product->id)->exists())
                     $order->products()->attach($id, ['quantity' => $count, 'price' => $product->price]);
@@ -89,7 +89,7 @@ class CartController extends Controller
 
     public function deleteCartItem(Request $request, $id, $count) {
         if(Auth::check()){
-            $order = Order::where('status', false)->first();
+            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $order->products()->detach($id);
         }
         else{

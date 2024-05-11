@@ -75,16 +75,16 @@
                     <div class="row" id="stlpec_2_riadok_2">
                                                
                         <div id="button-cart-wrap" class="d-flex flex-wrap flex-sm-nowrap align-items-center my-2 my-sm-4">
+                        <form action="{{url('/category/'.$product->main_category_id.'/sub-category/'.$product->sub_category_id.'/detail/'.$product->id.'/cart_add/'.$product->id.'/5')}}" method="POST">
                             <div class="input-group no-input-arrows input-cart-amount flex-shrink-1">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary border-right-0 btn-cart-amount-minus" type="button">-</button>
                                 </div>
-                                <input class="form-control text-center font-weight-bold" required type="number" step="1" min="1" name="quantity" id="quantity" value="1" max="9999">
+                                <input class="form-control text-center font-weight-bold" required type="number" step="1" min="1" name="quantity" id="quantity" value="1" max="999">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary border-left-0 btn-cart-amount-plus" type="button">+</button>
                                 </div>
                             </div>
-                            <form action="{{url('/category/'.$product->main_category_id.'/sub-category/'.$product->sub_category_id.'/detail/'.$product->id.'/cart_add/'.$product->id.'/5')}}" method="POST">
                                 @csrf
                                 <button type="submit"  id="button-cart" class="btn btn-primary flex-grow-1 ml-2">
                                     
