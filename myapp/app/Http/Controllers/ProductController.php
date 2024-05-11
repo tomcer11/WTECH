@@ -163,7 +163,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     { 
-        dd($id);
         $product = Product::find($id);
         $images = $product->images;
         foreach($images as $image) {

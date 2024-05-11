@@ -30,6 +30,7 @@ class CartController extends Controller
         else{
             $cart = $request->session()->get('cart');
             $total_price = session()->get('total_price');
+            ksort($cart);
             return view('cart/guest', ['cart' => $cart, 'total_price' => $total_price]);
         }
     }
@@ -37,7 +38,7 @@ class CartController extends Controller
     public function addToCart(Request $request, $m_id, $s_id, $p_id, $id, $count) {
         if(Auth::check()){
             $product = Product::find($id);
-            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
+            $order = Order::where('status', false)->where('user_id', Auth::id())->first();
             if($order){
                 if(!$order->products()->where('product_id', $product->id)->exists())
                     $order->products()->attach($id, ['quantity' => $count, 'price' => $product->price]);
@@ -89,7 +90,7 @@ class CartController extends Controller
 
     public function deleteCartItem(Request $request, $id, $count) {
         if(Auth::check()){
-            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
+            $order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $order->products()->detach($id);
         }
         else{
@@ -101,6 +102,36 @@ class CartController extends Controller
             $request->session()->forget('total_price');
             session()->forget('total_price');
             $request->session()->put('total_price', $total_price - $count * $product->price);
+        }
+        return redirect('cart');
+    }
+
+    public function updateCount(Request $request, $id) {
+        if(Auth::check()){
+            $order = Order::where('status', false)->where('user_id', Auth::id())->first();
+            $pivot = $order->products()->where('product_id', $id)->first()->pivot;
+            $pivot->quantity = $request->input('quantity_'.$id);
+            $pivot->save();
+        }
+        else{
+            $product = Product::find($id);
+            $total_price = $request->session()->get('total_price');
+            $cart = $request->session()->get('cart');
+            $total_price = ($total_price - $cart[$id]['product_count'] * $product->price) + $request->{'quantity_'.$id} * $product->price;
+            $request->session()->forget('total_price');
+            $cart_item = $cart[$id];
+            unset($cart[$id]);
+
+            $cart[$id] =[   'product_id' => $cart_item['product_id'],
+                            'product_image_name' => $cart_item['product_image_name'],
+                            'product_producer' => $cart_item['product_producer'],
+                            'product_model' => $cart_item['product_model'],
+                            'product_price' => $cart_item['product_price'],
+                            'product_count' => $request->input('quantity_'.$id),
+                            'total_price' => $request->input('quantity_'.$id) * $product->price,
+                        ];
+            $request->session()->put('cart', $cart);          
+            $request->session()->put('total_price', $total_price);
         }
         return redirect('cart');
     }

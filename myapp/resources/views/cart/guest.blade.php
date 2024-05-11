@@ -18,11 +18,16 @@
                                 </div>
                                 <div class="col-sm-5 col-12 order-sm-2 order-3">
                                     <div class="input-group">
-                                        <button class="btn btn-outline-secondary" type="button">-</button>
-                                        <div class="col-4">
-                                            <input value="{{$product['product_count']}}" type="integer" class="form-control text-center" placeholder="{{$product['product_count']}}" aria-label="Pocet" disabled>
-                                        </div>
-                                        <button class="btn btn-outline-secondary" type="button">+</button>
+                                        
+                                            <button class="btn btn-outline-secondary decrement" type="button">-</button>
+                                            <div class="col-4">
+                                                <form id="{{$loop->iteration}}" class="quantityForm" action="{{url('cart/count_change/'.$id.'/'.$product['product_count'])}}" method="POST">
+                                                    @csrf
+                                                    <input name="{{'quantity_'.$id}}"  min="1" max="99" required value="{{$product['product_count']}}" type="integer" class="form-control text-center quantity" placeholder="{{$product['product_count']}}" aria-label="Pocet">
+                                                </form>
+                                            </div>
+                                            <button class="btn btn-outline-secondary increment" type="button">+</button>
+                                            <button form="{{$loop->iteration}}" class="btn btn-dark" type="submit">Uloz</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-3 col-9 order-sm-3 order-4">

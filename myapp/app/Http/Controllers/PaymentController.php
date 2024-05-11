@@ -15,7 +15,7 @@ class PaymentController extends Controller
         $shipments = Shipment::all();
 
         if(Auth::check()){
-            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
+            $order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $selected_shipment = $order->shipment_id;
             $selected_payment = $order->payment_id;
         }
@@ -29,7 +29,7 @@ class PaymentController extends Controller
 
     public function storeShipment(Request $request) {
         if(Auth::check()){
-            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
+            $order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $order->shipment_id = $request->shipment_option;
             $order->save();
         }
@@ -42,7 +42,7 @@ class PaymentController extends Controller
 
     public function storePayment(Request $request) {
         if(Auth::check()){
-            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
+            $order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $order->payment_id = $request->payment_option;
             $order->save();
         }

@@ -15,7 +15,7 @@ class SummaryController extends Controller
 {
     public function index(Request $request){
         if(Auth::check()){
-            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
+            $order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $payment = Payment::find($order->payment_id);
             $shipment = Shipment::find($order->shipment_id);
 
@@ -46,7 +46,7 @@ class SummaryController extends Controller
 
     public function makeOrder(Request $request){
         if(Auth::check()){
-            $$order = Order::where('status', false)->where('user_id', Auth::id())->first();
+            $order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $order->status = true;
             $order->save();
         }

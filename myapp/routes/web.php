@@ -31,6 +31,7 @@ Route::resource('/', IndexController::class);
 Route::get('cart', [CartController::class, 'index']);
 Route::delete('cart/{id}/{count}', [CartController::class, 'deleteCartItem']);
 Route::post('/category/{m_id}/sub-category/{s_id}/detail/{product_id}/cart_add/{id}/{count}', [CartController::class, 'addToCart']);
+Route::post('cart/count_change/{id}/{count}', [CartController::class, 'updateCount']);
 
 Route::get('cart/delivery', [DeliveryController::class, 'index']);
 Route::post('cart/delivery', [DeliveryController::class, 'store']);

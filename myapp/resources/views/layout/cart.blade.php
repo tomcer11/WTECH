@@ -28,7 +28,10 @@
     <br>
     <div class="mb-5"></div>
     @include('layout.partials.footer')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     @include('layout.partials.script')
+    <script src="{{ asset('js/incrementDecrementCart.js') }}"></script>
+
 
 </body>
 

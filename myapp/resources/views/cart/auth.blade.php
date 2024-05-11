@@ -3,7 +3,7 @@
 
 @section('content')
     @if($order && !$order->products->isEmpty())
-        @foreach ($order->products as $product)
+        @foreach ($order->products->sortBy('id') as $product)
             <div class="card mb-3 cart">
                 <div class="row g-0 align-items-center">
                     <div class="col-sm-3">
@@ -18,11 +18,15 @@
                                 </div>
                                 <div class="col-sm-5 col-12 order-sm-2 order-3">
                                     <div class="input-group">
-                                        <button class="btn btn-outline-secondary" type="button">-</button>
-                                        <div class="col-4">
-                                            <input value="{{$product['product_count']}}" type="integer" class="form-control text-center" placeholder="{{$product->pivot->quantity}}" aria-label="Pocet" disabled>
-                                        </div>
-                                        <button class="btn btn-outline-secondary" type="button">+</button>
+                                            <button class="btn btn-outline-secondary decrement" type="button">-</button>
+                                            <div class="col-4">
+                                                <form id="{{$loop->iteration}}" class="quantityForm" action="{{url('cart/count_change/'.$product->id.'/0')}}" method="POST">
+                                                    @csrf
+                                                    <input name="{{'quantity_'.$product->id}}"  min="1" max="99" required value="{{$product->pivot->quantity}}" type="integer" class="form-control text-center quantity" placeholder="{{$product->pivot->quantity}}" aria-label="Pocet">
+                                                </form>
+                                            </div>
+                                            <button class="btn btn-outline-secondary increment" type="button">+</button>
+                                            <button form="{{$loop->iteration}}" class="btn btn-dark" type="submit">Uloz</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-3 col-9 order-sm-3 order-4">
