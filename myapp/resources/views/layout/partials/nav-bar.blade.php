@@ -92,12 +92,12 @@
                         <button class="nav-link text-white" type="submit">Prihlasit sa</button>
                     </form> --}}
                     {{-- @csrf --}}
-                    <a class="nav-link text-white" href="login">Prihlásiť sa</a>
+                    <a class="nav-link text-white" href="{{url('/login')}}">Prihlásiť sa</a>
                 </li>
             </ul>
             @endguest
             
-            <a class="navbar-brand" href="/cart">
+            <a class="navbar-brand" href="{{url('/cart')}}">
                 <img src="{{ asset('storage/Obrazky/cart.jpg') }}" alt="logo containg downhill biker" width="40" 
                         height="40" class="d-inline-block align-text-top">
             </a>

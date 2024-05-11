@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\OrderSpecification;
 use App\Models\Product;
 use Carbon\Carbon;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +31,9 @@ class CartController extends Controller
         else{
             $cart = $request->session()->get('cart');
             $total_price = session()->get('total_price');
-            ksort($cart);
+            if($cart){
+                ksort($cart);
+            }
             return view('cart/guest', ['cart' => $cart, 'total_price' => $total_price]);
         }
     }
@@ -107,6 +110,7 @@ class CartController extends Controller
     }
 
     public function updateCount(Request $request, $id) {
+        $validated = $request->validate(['quantity_'.$id => 'integer|min:1|max:99']);
         if(Auth::check()){
             $order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $pivot = $order->products()->where('product_id', $id)->first()->pivot;
