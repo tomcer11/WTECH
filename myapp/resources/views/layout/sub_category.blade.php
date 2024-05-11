@@ -162,28 +162,29 @@
                     </div>
                     
                     @foreach ($products->chunk(4) as $row)
-                    <div class="row g-0 justify-content-between pt-5">
-                        @foreach ($row as $product)
-                        <div class="col-9 col-md-5 col-lg-2">
-                            <div class="p-1">
-                                <div class="card" style="width: 10rem;">
-                                    <img src="{{ asset('storage/'.$product->images[0]->name) }}" class="card-img-top" alt="{{ $product->model }}">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">
-                                            <a class="link-dark link-danger-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                                                href="{{url('category/'.$product->main_category_id.'/sub-category/'.$sub_category->id.'/detail/'.$product->id)}}">
-                                                {{ $product->producer }} {{ $product->model }}
-                                            </a>
-                                        </h5>
-                                        <p class="card-text text-dark display-6 fw-bold">{{ $product->price }}</p>
-                                        <a href="{{url('category/'.$product->main_category_id.'/sub-category/'.$sub_category->id.'/detail/'.$product->id)}}" class="btn btn-danger">Buy</a>
+                        <div class="row g-0 pt-5">
+                            @foreach ($row as $product)
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                                    <div class="p-1">
+                                        <div class="card" style="width: 10rem;">
+                                            <img src="{{ asset('storage/'.$product->images[0]->name) }}" class="card-img-top" alt="{{ $product->model }}">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">
+                                                    <a class="link-dark link-danger-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                                                        href="{{url('category/'.$product->main_category_id.'/sub-category/'.$sub_category->id.'/detail/'.$product->id)}}">
+                                                        {{ $product->producer }} {{ $product->model }}
+                                                    </a>
+                                                </h5>
+                                                <p class="card-text text-dark display-6 fw-bold">{{ $product->price }}</p>
+                                                <a href="{{url('category/'.$product->main_category_id.'/sub-category/'.$sub_category->id.'/detail/'.$product->id)}}" class="btn btn-danger">Buy</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
-                    </div>
                     @endforeach
+
 
                     {{-- {{ $products->links() }} --}}
 

@@ -32,10 +32,15 @@ class ClearSession
 
 
         if (Str::contains($previousUrl, 'category') && Str::contains($previousUrl, 'sub-category')) {
-            Session::forget('selectedBrands');
-            Session::forget('selectedSizes');
-            Session::forget('selectedWheels');
+            if (!(Str::contains($currentUrl, 'category') && Str::contains($currentUrl, 'sub-category'))) {
+                Session::forget('selectedBrands');
+                Session::forget('selectedSizes');
+                Session::forget('selectedWheels');
+            }
+            
         }
+
+        
 
         
         
