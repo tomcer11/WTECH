@@ -15,7 +15,22 @@ class SummaryController extends Controller
 {
     public function index(Request $request){
         if(Auth::check()){
+            $order = Order::where('status', false)->first();
+            $payment = Payment::find($order->payment_id);
+            $shipment = Shipment::find($order->shipment_id);
 
+            $total_product_price = 0;
+            foreach($order->products as $product){
+                $total_product_price += $product->pivot->quantity * $product->price;
+            }
+            $order->total_price = $total_product_price;
+            $order->save();
+
+            $total_price = $total_product_price + $payment->price + $shipment->price;
+            $order_spec = $order->orderSpecification;
+            $adress = $order_spec->adress;
+            return view('summary.auth', ['order' => $order, 'payment' => $payment, 'shipment' => $shipment,
+                                        'total_price' => $total_price, 'order_spec' => $order_spec, 'adress' => $adress]); 
         }
         else{
             $delivery = $request->session()->get('delivery');
@@ -24,14 +39,16 @@ class SummaryController extends Controller
             $total_price_products = $request->session()->get('total_price');
             $total_price = $total_price_products + $payment->price + $shipment->price;
             $request->session()->put('order_price', $total_price);
-           return view('summary.guest', ['delivery' => $delivery, 'payment' => $payment, 'shipment' => $shipment,
+            return view('summary.guest', ['delivery' => $delivery, 'payment' => $payment, 'shipment' => $shipment,
                                         'total_price_products' => $total_price_products, 'total_price' => $total_price]); 
         }
     }
 
     public function makeOrder(Request $request){
         if(Auth::check()){
-
+            $order = Order::where('status', false)->first();
+            $order->status = true;
+            $order->save();
         }
         else{
             $delivery = $request->session()->get('delivery');
@@ -63,9 +80,13 @@ class SummaryController extends Controller
                 'created_at' => Carbon::now(timezone: true),
                 'updated_at' => Carbon::now(timezone: true)
             ]);
-        }
 
-        $request->session()->flush();
+            foreach(session()->get('cart') as $id => $product){
+                $order->products()->attach($id, ['quantity' => $product['product_count'],
+                                                'price' => $product['product_price']]);
+            }
+            $request->session()->flush();
+        }
 
         return redirect('/');
     }

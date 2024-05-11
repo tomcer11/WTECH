@@ -64,7 +64,7 @@ return new class extends Migration
             $table->timestampsTz();
         });
 
-        Schema::create('item_order', function (Blueprint $table) {
+        Schema::create('order_product', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('order_id');

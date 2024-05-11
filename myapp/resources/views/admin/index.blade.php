@@ -215,11 +215,11 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="cassette-count" class="col-form-label">Počet pastorkov:</label>
-                                            <input value="{{ $product->cassette_count }}" name="cassette_count" class="form-control" id="cassette-count" required>
+                                            <input value="{{ $product->cassette_count }}" type="number" name="cassette_count" class="form-control" id="cassette-count" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="front-cassette-count" class="col-form-label">Počet prevodníkov:</label>
-                                            <input value="{{ $product->front_cassette_count }}" name="front_cassette_count" class="form-control" id="front-cassette-count" required>
+                                            <input value="{{ $product->front_cassette_count }}" type="number" name="front_cassette_count" class="form-control" id="front-cassette-count" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="chain" class="col-form-label">Reťaz:</label>

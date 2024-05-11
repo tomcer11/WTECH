@@ -73,11 +73,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="cassette-count" class="col-form-label">Počet pastorkov:</label>
-                                <input name="cassette_count" class="form-control" id="cassette-count" required>
+                                <input type="number" name="cassette_count" class="form-control" id="cassette-count" required>
                             </div>
                             <div class="mb-3">
                                 <label for="front-cassette-count" class="col-form-label">Počet prevodníkov:</label>
-                                <input name="front_cassette_count" class="form-control" id="front-cassette-count" required>
+                                <input type="number" name="front_cassette_count" class="form-control" id="front-cassette-count" required>
                             </div>
                             <div class="mb-3">
                                 <label for="chain" class="col-form-label">Reťaz:</label>
