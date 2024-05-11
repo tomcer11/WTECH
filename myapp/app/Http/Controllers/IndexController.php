@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\SubCategory;
 
+use Illuminate\Support\Facades\Session;
+
+use function Symfony\Component\String\b;
+
 class IndexController extends Controller
 {
     /**
@@ -26,35 +30,141 @@ class IndexController extends Controller
     }
 
 
+
+    
     public function show_sub_category(Request $request, string $id, string $s_id) {
-        $paginate_count = 1;
+        $paginate_count = 4;
+    
+        // Získanie značiek filtrov z query stringu (GET parametru brands)
+        $selectedBrands = $request->input('brands', []);
+        $selectedSizes = $request->input('sizes', []);
+        $selectedWheels = $request->input('wheels', []);
+
+        // Aplikovanie filtrov na produkty
+        $productsQuery = Product::where('sub_category_id', $s_id);
         
-        if ($request->has('sort')) {
-            if ($request->sort === 'asc') {
-                $products = Product::where('sub_category_id', $s_id)->orderBy('price', 'asc')->paginate($paginate_count);
-            } elseif ($request->sort === 'desc') {
-                $products = Product::where('sub_category_id', $s_id)->orderBy('price', 'desc')->paginate($paginate_count);
+        if (!empty($selectedBrands)) {
+            $productsQuery->whereIn('producer', $selectedBrands);
+            $request->session()->put('selectedBrands', $selectedBrands);
+        }
+        else {
+            if (!$request->has('bar')) {
+                $storedBrands = $request->session()->get('selectedBrands');
+                if (!empty($storedBrands)) {
+                    $productsQuery->whereIn('producer', $storedBrands);
+                }
             }
-        } else {
-            // Ak nie je nastavený parameter sort, tak zobrazíme produkty bez zmeny poradia
-            $products = Product::where('sub_category_id', $s_id)->paginate($paginate_count);
+            else {
+                $request->session()->put('selectedBrands', []);
+            }
         }
 
 
+        if (!empty($selectedSizes)) {
+            $productsQuery->whereIn('frame_size', $selectedSizes);
+            $request->session()->put('selectedSizes', $selectedSizes);
+        }
+        else {
+            if (!$request->has('bar')) {
+                $storedSizes = $request->session()->get('selectedSizes');
+                if (!empty($storedSizes)) {
+                    $productsQuery->whereIn('frame_size', $selectedSizes);
+                }
+            }
+            else {
+                $request->session()->put('selectedSizes', []);
+            }
+        }
+
+
+        if (!empty($selectedWheels)) {
+            $productsQuery->where(function ($query) use ($selectedWheels) {
+                foreach ($selectedWheels as $wheel) {
+                    $query->orWhere('rim', 'LIKE', "%{$wheel}%");
+                }
+            });
+            $request->session()->put('selectedWheels', $selectedWheels);
+        }
+        else {
+            if (!$request->has('bar')) {
+                $storedWheels = $request->session()->get('selectedWheels');
+                if (!empty($storedWheels)) {
+                    $productsQuery->where(function ($query) use ($selectedWheels) {
+                        foreach ($selectedWheels as $wheel) {
+                            $query->orWhere('rim', 'LIKE', "%{$wheel}%");
+                        }
+                    });
+                }
+            }
+            else {
+                $request->session()->put('selectedWheels', []);
+            }
+        }
+
+
+
+
+
+
+        if ($request->sort === 'asc') {
+            $productsQuery->orderBy('price', 'asc');
+        }
+        elseif ($request->sort === 'desc') {
+            $productsQuery->orderBy('price', 'desc');
+        }
+        Session::put('sort', $request->sort);
+
+        if (!$request->has('sort')) {
+            Session::put('sort', 'none');
+        }
         
-        $request->session()->put('sort', $request->sort);
+        
+        
+        // // Získanie zoradenia
+        // if ($request->has('sort')) {
+        //     if ($request->sort === 'asc') {
+        //         $productsQuery->orderBy('price', 'asc');
+        //     }
+        //     elseif ($request->sort === 'desc') {
+        //         $productsQuery->orderBy('price', 'desc');
+        //     }
+        //     Session::put('sort', $request->sort);
+        //     //$request->session()->put('sort', $request->sort);
+        // }
+        // else {
+        //     $storedSort = $request->session()->get('sort');
+        //     if ($storedSort === 'asc') {
+        //         $productsQuery->orderBy('price', 'asc');
+        //     } elseif ($storedSort === 'desc') {
+        //         $productsQuery->orderBy('price', 'desc');
+        //     }
+        // }
+        
+        
+        
+
+        $products = $productsQuery->paginate($paginate_count);
+
         $sort = $request->session()->get('sort');
+        $selectedBrands = $request->session()->get('selectedBrands');
+        $selectedSizes = $request->session()->get('selectedSizes');
+        $selectedWheels = $request->session()->get('selectedWheels');
 
         $sub_category = SubCategory::find($s_id);
 
-        
+        // Uložte aktuálnu URL adresu používateľa do session
+        //Session::put('previousUrl', $request->url());
+
+
+        // Návrat zobrazenia s danými
         return view('layout.sub_category')->with([
             'sub_category' => $sub_category, 
             'products' => $products,
+            'selectedBrands' => $selectedBrands,
+            'selectedSizes' => $selectedSizes,
+            'selectedWheels' => $selectedWheels,
             'sort' => $sort,
         ]);
-
-        //return view('layout.sub_category')->with(['sub_category' => $sub_category, 'products' => $products]);
     }
     
 

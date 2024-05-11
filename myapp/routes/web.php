@@ -9,15 +9,19 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SummaryController;
-use App\Http\Controllers\UserController;
-
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Middleware\ClearSession;
+
+
 
 // Route::get('/detail/{id}', [ProductController::class, 'show']);
 
 Route::get('/category/{id}', [IndexController::class, 'show_category']);
-Route::get('/category/{id}/sub-category/{s_id}', [IndexController::class, 'show_sub_category']);
+Route::get('/category/{id}/sub-category/{s_id}', [IndexController::class, 'show_sub_category'])->middleware(ClearSession::class);
 Route::get('/category/{id}/sub-category/{s_id}/detail/{product_id}', [ProductController::class, 'show']);
+
+// Route::get('/category/{id}/sub-category/{s_id}', 'IndexController@show_sub_category')->name('category.sub-category.show');
 
 
 Route::get('admin', [ProductController::class, 'index'])->middleware(['auth','can:viewAny, App\Models\Product']);
@@ -26,7 +30,7 @@ Route::get('admin/{id}', [ProductController::class, 'show']);
 Route::put('admin/{id}', [ProductController::class, 'update'])->middleware(['auth', 'can:update, App\Models\Product']);
 Route::delete('admin/{id}', [ProductController::class, 'destroy'])->middleware(['auth', 'can:delete, App\Models\Product']);
 Route::delete('image/{id}', [ImageController::class, 'destroy'])->middleware('auth', 'can:delete, App\Models\Product');
-Route::resource('/', IndexController::class);
+Route::resource('/', IndexController::class)->middleware(ClearSession::class);
 
 Route::get('cart', [CartController::class, 'index']);
 Route::delete('cart/{id}/{count}', [CartController::class, 'deleteCartItem']);
