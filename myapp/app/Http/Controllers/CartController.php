@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller
 {
@@ -110,7 +111,10 @@ class CartController extends Controller
     }
 
     public function updateCount(Request $request, $id) {
-        $validated = $request->validate(['quantity_'.$id => 'integer|min:1|max:99']);
+        $validator = $request->validate(['quantity_'.$id => 'integer|min:1|max:99']);
+        if($validator){
+            return back()->withErrors(["count" => "invalide range"])->withInput();
+        }
         if(Auth::check()){
             $order = Order::where('status', false)->where('user_id', Auth::id())->first();
             $pivot = $order->products()->where('product_id', $id)->first()->pivot;

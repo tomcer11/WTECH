@@ -25,11 +25,11 @@ class StoreDeliveryRequest extends FormRequest
             'name' => 'required|max:50',
             'surname' => 'required|max:50',
             'email' => 'required|max:254',
-            'phone' => 'required|max:12',
+            'phone' => 'required|numeric|digits_between:1,12',
             'street' => 'required|max:30',
             'house_number' => 'required|integer',
             'city' => 'required|max:30',
-            'postcode' => 'required|max:5'
+            'postcode' => 'required|digits_between:5,5|numeric'
         ];
     }
 }

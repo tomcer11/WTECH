@@ -16,6 +16,14 @@
     <main>
         <div class="container-fluid">
             <div class="pt-5">
+                @if(count($errors) > 0)
+                    @foreach( $errors->all() as $message )
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{$message}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endforeach
+                @endif
                 <h2 class="fs-2 pt-2">Nákupný košík</h2>
                 <h3 class="fs-5 pt-2 text-secondary">Produkty v košíku:</h3>
             </div>
@@ -24,7 +32,6 @@
             </section>
         </div>
     </main>
-
     <br>
     <div class="mb-5"></div>
     @include('layout.partials.footer')

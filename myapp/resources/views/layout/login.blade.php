@@ -8,6 +8,14 @@
 
     <link href="{{ asset('/css/LOGIN_page.css') }}" rel="stylesheet">
 <body>
+    @if(count($errors) > 0)
+        @foreach( $errors->all() as $message )
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{$message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endforeach
+    @endif
     <div class="center">
         <h1>Prihlásenie</h1>
         <form action="/login" method="POST">
