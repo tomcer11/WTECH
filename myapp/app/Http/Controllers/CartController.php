@@ -24,7 +24,7 @@ class CartController extends Controller
                 return view('cart/auth', ['order' => $order, 'total_price' => $total_price]);
             }
             else{
-                return view('cart/auth', ['products' => null, 'total_price' => null]);
+                return view('cart/auth', ['order' => null, 'total_price' => null]);
             }
         }
         else{
