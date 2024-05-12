@@ -216,6 +216,7 @@ class IndexController extends Controller
         else {
             Session::put('text', $searched_text);
         }
+
         
     
         $products = Product::where(function ($query) use ($searched_text) {

@@ -183,7 +183,7 @@
                                                         {{ $product->producer }} {{ $product->model }}
                                                     </a>
                                                 </h5>
-                                                <p class="card-text text-dark display-6 fw-bold">{{ $product->price }}</p>
+                                                <p class="card-text text-dark display-6 fw-bold">{{ $product->price }}€</p>
                                                 <a href="{{url('category/'.$product->main_category_id.'/sub-category/'.$sub_category->id.'/detail/'.$product->id)}}" class="btn btn-danger">Buy</a>
                                             </div>
                                         </div>

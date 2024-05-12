@@ -24,12 +24,15 @@ class ClearSub
         $previousUrl = $request->headers->get('referer'); // Získať predchádzajúcu URL adresu  
 
         if (Str::contains($previousUrl, 'category') && Str::contains($previousUrl, 'sub-category')) {
-            if (Str::contains($currentUrl, 'category') && Str::contains($currentUrl, 'sub-category') && !Str::contains($currentUrl, 'sort')) {
-                Session::forget('selectedBrands');
-                Session::forget('selectedSizes');
-                Session::forget('selectedWheels');
-                Session::forget('priceFrom');
-                Session::forget('priceTo');
+            if (Str::contains($currentUrl, 'category') && Str::contains($currentUrl, 'sub-category')) {
+                //dd((Str::contains($currentUrl, 'sort')));
+                if (!($request->has('sort'))) {
+                    Session::forget('selectedBrands');
+                    Session::forget('selectedSizes');
+                    Session::forget('selectedWheels');
+                    Session::forget('priceFrom');
+                    Session::forget('priceTo');
+                }
             }
         }
 
