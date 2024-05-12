@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\SubCategory;
 use App\Models\MainCategory;
 use App\Models\Image;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -86,9 +87,21 @@ class ProductController extends Controller
      * Display the specified resource.
      */
     public function show($id, $s_id, $product_id)
-    {
+    {   
         $product = Product::find($product_id);
-        return view('layout.product_detail')->with('product', $product);
+        if(Auth::check()){
+            $in_cart =  $product->orders->where('status', false);
+        }
+        else{
+            $cart = Session()->get('cart');
+            if (!$cart || !array_key_exists($product_id, $cart))
+                $in_cart = false;
+            else{
+                $in_cart = true;
+            }
+        }
+
+        return view('layout.product_detail')->with('product', $product)->with('in_cart', $in_cart);
     }
 
 

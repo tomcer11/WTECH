@@ -71,7 +71,7 @@
                     <p class="zvysok">{{ $product->frame_size }}</p>
                     
                     
-
+                    @if (!$in_cart)
                     <div class="row" id="stlpec_2_riadok_2">
                                                
                         <div id="button-cart-wrap" class="d-flex flex-wrap flex-sm-nowrap align-items-center my-2 my-sm-4">
@@ -96,10 +96,10 @@
                                 </button>
                            
                         </div>
-                        
-                    
- 
                     </div>
+                    @else
+                        <p>V košíku</p>
+                    @endif
 
                 </div>
 
