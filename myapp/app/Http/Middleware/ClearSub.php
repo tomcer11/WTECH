@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
-class ClearSession
+class ClearSub
 {
     /**
      * Handle an incoming request.
@@ -24,7 +24,7 @@ class ClearSession
         $previousUrl = $request->headers->get('referer'); // Získať predchádzajúcu URL adresu  
 
         if (Str::contains($previousUrl, 'category') && Str::contains($previousUrl, 'sub-category')) {
-            if (!(Str::contains($currentUrl, 'category') && Str::contains($currentUrl, 'sub-category'))) {
+            if (Str::contains($currentUrl, 'category') && Str::contains($currentUrl, 'sub-category') && !Str::contains($currentUrl, 'sort')) {
                 Session::forget('selectedBrands');
                 Session::forget('selectedSizes');
                 Session::forget('selectedWheels');

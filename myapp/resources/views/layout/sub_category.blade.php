@@ -20,26 +20,34 @@
             <div class="row flex-nowrap">
                 <div class="col-4 col-md-2 py-5" id="filter-bar">
                     <ul class="nav nav-pills flex-column mb-auto  bg-dark">
-                        <li class="nav-item pb-3">
-                            <h2 class="text-white text-center fs-3">
-                                Cena
-                            </h2>
-                        </li>
-                        <li class="nav-item">
-                            <div class="input-group">
-                                <input type="number" class="form-control" placeholder="OD">
-                                <input type="number" class="form-control" placeholder="DO">
-                            </div>
-                        </li>
-                        <li class="nav-item pt-5">
-                            <h2 class="text-white text-center fs-3">
-                                Značka
-                            </h2>
-                        </li>
                         <form id="filterForm" method="GET" action="{{ url('/category/'.$sub_category->main_category_id.'/sub-category/'.$sub_category->id) }}">
                             <input type="hidden" name="bar" value="true">
                             <input type="hidden" name="sort" value="{{ $sort }}">
+                            @if(count($errors) > 0)
+                                @foreach( $errors->all() as $message )
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    {{$message}}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                @endforeach
+                            @endif
+                            <li class="nav-item pb-3">
+                                <h2 class="text-white text-center fs-3">
+                                    Cena
+                                </h2>
+                            </li>
+                            <li class="nav-item">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="price_from" value="{{ $priceFrom ?? '' }}" placeholder="OD">
+                                    <input type="number" class="form-control" name="price_to" value="{{ $priceTo ?? '' }}" placeholder="DO">
+                                </div>
+                            </li>
                             
+                            <li class="nav-item pt-5">
+                                <h2 class="text-white text-center fs-3">
+                                    Značka
+                                </h2>
+                            </li>
                             <li class="nav-item ps-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="Santa Cruz" name="brands[]" @if(in_array('Santa Cruz', session('selectedBrands', []))) checked @endif id="Santa_Cruz-checkbox">

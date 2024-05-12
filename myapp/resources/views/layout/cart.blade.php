@@ -16,7 +16,7 @@
     <main>
         <div class="container-fluid">
             <div class="pt-5">
-                @if(count($errors) > 0)
+                @if($errors->any())
                     @foreach( $errors->all() as $message )
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         {{$message}}

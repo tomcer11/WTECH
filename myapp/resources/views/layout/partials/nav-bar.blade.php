@@ -68,10 +68,12 @@
                     </div>
                 </li>
             </ul>
-            <form class="d-flex ms-auto me-auto" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-primary" type="submit">Search</button>
+            
+            <form class="d-flex ms-auto me-auto" role="search" method="GET" action="/search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searching" value="{{ $term ?? '' }}">
+                <button class="btn btn-outline-primary" type="submit">Search</button>
             </form>
+            
             @auth
                 <ul class="navbar-nav mb-2 p mb-lg-0">
                     <li class="nav-item">
@@ -87,11 +89,6 @@
             @guest
             <ul class="navbar-nav mb-2 p mb-lg-0">
                 <li class="nav-item">
-                    {{-- <form action="login" method="POST">
-                        @csrf
-                        <button class="nav-link text-white" type="submit">Prihlasit sa</button>
-                    </form> --}}
-                    {{-- @csrf --}}
                     <a class="nav-link text-white" href="{{url('/login')}}">Prihlásiť sa</a>
                 </li>
             </ul>

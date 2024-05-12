@@ -112,7 +112,7 @@ class CartController extends Controller
 
     public function updateCount(Request $request, $id) {
         $validator = $request->validate(['quantity_'.$id => 'integer|min:1|max:99']);
-        if($validator){
+        if(!$validator){
             return back()->withErrors(["count" => "invalide range"])->withInput();
         }
         if(Auth::check()){

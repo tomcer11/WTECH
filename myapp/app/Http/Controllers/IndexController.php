@@ -42,7 +42,66 @@ class IndexController extends Controller
 
         // Aplikovanie filtrov na produkty
         $productsQuery = Product::where('sub_category_id', $s_id);
+
+        // Spracovanie filtračných parametrov
+        $priceFrom = $request->input('price_from');
+        $priceTo = $request->input('price_to');
+
+        $from = false;
+        $to = false;
+
+        if (!empty($priceFrom)) {
+            $from = true;
+            Session::put('priceFrom', $priceFrom);
+        }
+        else {
+            if (!$request->has('bar')) {
+                if (Session::has('priceFrom')) {
+                    $priceFrom = Session::get('priceFrom');
+                    $from = true;
+                }
+            }
+            else {
+                Session::forget('priceFrom');
+            }
+        }
+
+
+        if (!empty($priceTo)) {
+            $to = true;
+            Session::put('priceTo', $priceTo);
+        }
+        else {
+            if (!$request->has('bar')) {
+                if (Session::has('priceTo')) {
+                    $priceTo = Session::get('priceTo');
+                    $to = true;
+                }
+            }
+            else {
+                Session::forget('priceTo');
+            }
+        }
+
+
+        if ($from) {
+            if ($to) {
+                $productsQuery->whereBetween('price', [$priceFrom, $priceTo]);
+            }
+            else {
+                $productsQuery->where('price', '>', $priceFrom);
+            }
+        }
+        else {
+            if ($to) {
+                $productsQuery->where('price', '<', $priceTo);
+            }
+        }
+
         
+
+
+
         if (!empty($selectedBrands)) {
             $productsQuery->whereIn('producer', $selectedBrands);
             $request->session()->put('selectedBrands', $selectedBrands);
@@ -120,28 +179,6 @@ class IndexController extends Controller
         
         
         
-        // // Získanie zoradenia
-        // if ($request->has('sort')) {
-        //     if ($request->sort === 'asc') {
-        //         $productsQuery->orderBy('price', 'asc');
-        //     }
-        //     elseif ($request->sort === 'desc') {
-        //         $productsQuery->orderBy('price', 'desc');
-        //     }
-        //     Session::put('sort', $request->sort);
-        //     //$request->session()->put('sort', $request->sort);
-        // }
-        // else {
-        //     $storedSort = $request->session()->get('sort');
-        //     if ($storedSort === 'asc') {
-        //         $productsQuery->orderBy('price', 'asc');
-        //     } elseif ($storedSort === 'desc') {
-        //         $productsQuery->orderBy('price', 'desc');
-        //     }
-        // }
-        
-        
-        
 
         $products = $productsQuery->paginate($paginate_count);
 
@@ -150,10 +187,10 @@ class IndexController extends Controller
         $selectedSizes = $request->session()->get('selectedSizes');
         $selectedWheels = $request->session()->get('selectedWheels');
 
-        $sub_category = SubCategory::find($s_id);
+        $priceFrom = Session::get('priceFrom');
+        $priceTo = Session::get('priceTo');
 
-        // Uložte aktuálnu URL adresu používateľa do session
-        //Session::put('previousUrl', $request->url());
+        $sub_category = SubCategory::find($s_id);
 
 
         // Návrat zobrazenia s danými
@@ -164,6 +201,66 @@ class IndexController extends Controller
             'selectedSizes' => $selectedSizes,
             'selectedWheels' => $selectedWheels,
             'sort' => $sort,
+            'priceFrom' => $priceFrom,
+            'priceTo' => $priceTo
+        ]);
+    }
+
+
+    public function search_items(Request $request) {
+        $searched_text = $request->input('searching');
+    
+        if (empty($searched_text)) {
+            $searched_text = Session::get('text');
+        }
+        else {
+            Session::put('text', $searched_text);
+        }
+        
+    
+        $products = Product::where(function ($query) use ($searched_text) {
+            // Rozdelíme hľadaný výraz na jednotlivé slová a prevedieme ich na malé písmená
+            $keywords = explode(' ', strtolower($searched_text));
+            
+            // Pre každé slovo aplikujeme podmienku, že musí byť obsiahnuté v jednom zázname
+            foreach ($keywords as $keyword) {
+                $query->where(function ($query) use ($keyword) {
+                    $query->where(function ($query) use ($keyword) {
+                        $query->whereRaw("LOWER(CONCAT(producer, model, LEFT(rim, 4))) LIKE '%$keyword%'");
+                    })
+                    ->orWhere(function ($query) use ($keyword) {
+                        $query->whereRaw("LOWER(CONCAT(producer, ' ', model, ' ', LEFT(rim, 4))) LIKE '%$keyword%'");
+                    })
+                    ->orWhere(function ($query) use ($keyword) {
+                        $query->whereRaw("LOWER(CONCAT(producer, ' ', model, LEFT(rim, 4))) LIKE '%$keyword%'");
+                    });
+                });
+            }
+        });
+    
+        if ($request->sort === 'asc') {
+            $products->orderBy('price', 'asc');
+        }
+        elseif ($request->sort === 'desc') {
+            $products->orderBy('price', 'desc');
+        }
+        Session::put('sort', $request->sort);
+    
+        if (!$request->has('sort')) {
+            Session::put('sort', 'none');
+        }
+    
+        $sort = Session::get('sort');
+        $term = Session::get('text');
+    
+        // Zavolanie metódy `get()` na dotazovacom builderi
+        $products = $products->get();
+    
+        // Návrat zobrazenia s danými
+        return view('layout.search')->with([ 
+            'products' => $products,
+            'sort' => $sort,
+            'term' => $term
         ]);
     }
     

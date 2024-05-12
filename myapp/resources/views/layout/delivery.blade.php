@@ -16,7 +16,6 @@
     <main>
         @include('layout.partials.order-information-nav-bar')
 
-        @yield('content')
         @if(count($errors) > 0)
             @foreach( $errors->all() as $message )
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -25,6 +24,9 @@
             </div>
             @endforeach
         @endif
+
+        @yield('content')
+        
     </main>
 
     <br>
